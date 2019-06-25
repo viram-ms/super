@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
      margin: '10 auto',
      padding: 20,
       height: 300,
+      [theme.breakpoints.down('sm')]:{
+       height: 310
+    },
       backgroundColor: '#00a651',
       color: 'white'
   },
@@ -35,6 +38,9 @@ const useStyles = makeStyles(theme => ({
     margin: '10 auto',
     padding: 20,
     height: 300,
+    [theme.breakpoints.down('sm')]:{
+        height: 310
+     },
     backgroundColor: '#303192',
     color: 'white'
 },
@@ -43,6 +49,9 @@ childThree:{
      margin: '10 auto',
      padding: 20,
       height: 300,
+      [theme.breakpoints.down('sm')]:{
+        height: 310
+     },
       backgroundColor: '#f58221',
       color: 'white'
 },
