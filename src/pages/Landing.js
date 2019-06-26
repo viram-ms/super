@@ -13,10 +13,11 @@ function Landing(){
         <Navbar/>
         <Carousel 
             id="section1"/>
-        <Features  
-            id="section2"/>
+        
         <MediaCard 
             id="section3"/>
+            <Features  
+            id="section2"/>
         <Logo
             id="section4"/>
         <Footer 

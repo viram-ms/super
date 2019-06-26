@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
   childOne:{
      textAlign: 'center',
      margin: '10 auto',
-     padding: 20,
-      height: 300,
+     padding: 10,
+      height: 200,
       [theme.breakpoints.down('sm')]:{
        height: 310
     },
@@ -36,8 +36,8 @@ const useStyles = makeStyles(theme => ({
   childTwo:{
     textAlign: 'center',
     margin: '10 auto',
-    padding: 20,
-    height: 300,
+    padding: 10,
+    height: 200,
     [theme.breakpoints.down('sm')]:{
         height: 310
      },
@@ -47,8 +47,8 @@ const useStyles = makeStyles(theme => ({
 childThree:{
     textAlign: 'center',
      margin: '10 auto',
-     padding: 20,
-      height: 300,
+     padding: 10,
+      height: 200,
       [theme.breakpoints.down('sm')]:{
         height: 310
      },
@@ -56,10 +56,10 @@ childThree:{
       color: 'white'
 },
 icons:{
-    height: 110
+    height: 75
 },
 title:{
-    margin: '10px 0px'
+    margin: '5px 0px'
 }
   }));
 
@@ -71,22 +71,25 @@ title:{
                 <Grid item xs={12} sm={12} md={4} className={classes.childOne}>
                     <Typography variant="h5" className={classes.title}>Branded Products</Typography>
                     <img src={brand} alt="img" className={classes.icons} />
-                    <Typography variant="body1" >Our store brings to you the top quality brands under one roof.If we don't serve it,you don't need it.We provide the best brands with the most affordable prices in our stores.
-</Typography>
+                    <Typography variant="body1" >Our store brings to you the top quality brands under one roof.
+                    {/* We provide the best brands with the most affordable prices in our stores. */}
+                    </Typography>
 
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} className={classes.childTwo}>
                 <Typography variant="h5" className={classes.title}>Customer satisfaction</Typography>
                 <img src={customer} alt="img" className={classes.icons} />
 
-                    <Typography variant="body1" >Our main motto at Kenorita is that our customers should leave our store happy and content.We provide the best services and products that would want you to visit our store time and again.
-</Typography>
+                    <Typography variant="body1">
+                        {/* Our main motto at Kenorita is that our customers should leave our store happy and content. */}
+                        We provide the best services and products that would want you to visit our store time and again.
+                    </Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} className={classes.childThree}>
                 <Typography variant="h5" className={classes.title}>Premium Quality </Typography>
                 <img src={premium} alt="img"  className={classes.icons}/>
 
-                    <Typography variant="body1" >All our products are of premium quality.All the products undergo a strenuous quality check before being displayed for sale in our store.</Typography>
+                    <Typography variant="body1">All the products undergo a quality check before being displayed for sale in our store.</Typography>
                 </Grid>
               </Grid>
           </div>

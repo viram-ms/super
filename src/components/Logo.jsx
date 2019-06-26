@@ -23,8 +23,8 @@ const styles = theme => ({
     justifyContent:'center'
   },
   logoImg:{
-    width:200,
-    height:150,
+    width:125,
+    height:100,
     [theme.breakpoints.down("sm")]: {
       width: 100,
     height: 100,
@@ -43,7 +43,7 @@ const styles = theme => ({
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 5
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },

@@ -12,6 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
+import CircularProgress from '@material-ui/core/LinearProgress';
 const styles = theme => ({
     chip: {
         fontSize: 14,
@@ -61,6 +62,10 @@ const styles = theme => ({
           },
         },
       },
+      progress: {
+        margin: '100px auto',
+        color: 'red'
+      }
   });
 
   function searchFor(term){
@@ -77,6 +82,7 @@ class Category extends Component{
         category : [],
         subCategory: [],
         term: '',
+        show: false
     }
     handleChange =(event) =>{
         this.setState({
@@ -101,6 +107,7 @@ class Category extends Component{
             this.setState({
                 title: data[0].name,
                 category: data[0].categories,
+                show: true
                 // subCategory: data[0].categories[0].subCategories
             })
         }
@@ -109,21 +116,24 @@ class Category extends Component{
 
     }
     render(){
-        const {title, category, subCategory} = this.state
+        const {title, category, subCategory, show} = this.state
         const {classes} = this.props;
         return(
             <div>
             <Navbar />
+            {!show && <CircularProgress className={classes.progress} />} 
            
             {/* <h1 style={{marginTop: 100}}>Category</h1> */}
-            <div className={classes.wrapper} style={{ marginTop: 100}} id="section3">
+            {show && <div className={classes.wrapper} style={{ marginTop: 100}} id="section3">
                 <div style={{marginTop: '-100px'}} >
                     <img src={market} alt="img" style={{height: 400, width: '100%', position: 'relative', opacity: 0.5}}/>
-                    <div style={{maxWidth: 1200, margin: 'auto',position: 'absolute', top: '13%',left: '50%',transform: 'translate(-50%, -50%)', textAlign: 'center',backgroundColor: 'rgba(1,0,1,0.5)',padding: 10}}>
+                    <div style={{maxWidth: 1200, margin: 'auto',position: 'absolute', top: '18%',left: '50%',transform: 'translate(-50%, -50%)', textAlign: 'center',backgroundColor: 'rgba(1,0,1,0.5)',padding: 10}}>
                         <p style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '28px', color:'white'}}>{title} Products</p> 
                     </div>
-                    <Grid container style={{position: 'absolute', top: '25%', left: '50%',transform: 'translate(-50%, -50%)', }}>
-                    <Grid item xs={12} sm={12} md={6} style={{margin: 'auto'}}>
+                   
+                </div>
+                <Grid container>
+                    <Grid item xs={10} sm={10} md={6} style={{margin: 'auto'}}>
                     <div className={classes.search} >
                     <div className={classes.searchIcon}>
                         <SearchIcon />
@@ -141,17 +151,19 @@ class Category extends Component{
                     </div>
                 </Grid>
             </Grid>
-                </div>
+                  </div> 
                 
-            </div>
+                }
 
-            <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
+            {show && <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
+        
 
                     {category.filter(searchFor(this.state.term)).map((item) => <div style={{marginTop: 20}}> 
+                    
                 <Paper style={{padding: 20}}>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={4} style={{textAlign: 'center'}}>
-                            <img src={require(`../assests/${item.image}.jpg`)} alt="img" style={{height: 200}} />
+                            <img src={require(`../assests/${item.image}`)} alt="img" style={{height: 200, width: 250}} />
                         </Grid>
                         <Grid item xs={12} sm={12} md={8}>
                         <h2 style={{textTransform: 'uppercase',textAlign: 'center'}}>{item.name}</h2> 
@@ -181,9 +193,9 @@ class Category extends Component{
               
             
             
-            </div>
+          </div>  }
             <Footer />
-            </div>
+            </div> 
            
         );
     }
