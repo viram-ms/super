@@ -169,9 +169,10 @@ class Search extends Component{
                       subCategory.map((item) => 
                         <Grid item xs={12} sm={12} md={12/this.state.subCategory.length} style={{padding: 20, margin: 'auto'}}> 
                         <Typography variant="h6" style={{marginBottom: 10}}>{item.name}</Typography>
+                        
                         <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px', margin: 0}} />
                         <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography>
-                        {item.brands.map((brands) => {if(brands !== this.state.foundedTerm) return <Chip color="primary" label={`${brands}`} className={classes.chip} />})}
+                        {item.brands.map((brands) => {/*if(brands !== this.state.foundedTerm)*/ return <Chip color="primary" label={`${brands}`} className={classes.chip} />})}
                         </Grid>
                      ) 
                     }

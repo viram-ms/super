@@ -136,7 +136,8 @@ class Category extends Component{
       }
       else {
         this.setState({
-          showMessage : 'Nothing Found'
+          subCategory: '',
+          showMessage : 'Your search did not match any products'
         })
       }
       
@@ -239,7 +240,7 @@ class Category extends Component{
                   </div>
               }
               {
-                this.state.showMessage.length > 0 && <Typography>{this.state.showMessage}</Typography>
+                this.state.showMessage.length > 0 && <div  style={{maxWidth: 1200, margin: 'auto',padding: 20}}><Paper style={{padding: 20}}><Typography>{this.state.showMessage}</Typography></Paper></div>
               }
 
 

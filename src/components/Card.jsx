@@ -126,19 +126,19 @@ export default function MediaCard(props) {
         // centerMode={true}
           className={classes.carousel}
           swipeable={true}
-          draggable={false}
+          draggable={true}
           showDots={false}
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
           slidesToSlide={1}
           infinite={true}
-          autoPlay={props.deviceType !== "mobile" ? false : false}
+          autoPlay={props.deviceType !== "mobile" ? true : false}
           autoPlaySpeed={1800}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
+          // removeArrowOnDeviceType={["tablet", "mobile"]}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-left-20-px"
