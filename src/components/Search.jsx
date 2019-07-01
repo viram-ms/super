@@ -124,7 +124,8 @@ class Search extends Component{
       if(data.length > 0){
         this.setState({
           subCategory: data,
-          foundedTerm: this.state.term
+          foundedTerm: this.state.term,
+          showMessage: ''
         });
       }
       else {
