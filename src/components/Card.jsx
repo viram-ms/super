@@ -133,7 +133,7 @@ export default function MediaCard(props) {
           slidesToSlide={1}
           infinite={true}
           autoPlay={props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={1800}
+          autoPlaySpeed={2500}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
