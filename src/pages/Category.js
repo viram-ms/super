@@ -24,6 +24,7 @@ const styles = theme => ({
         backgroundColor: '#f58221',
       },
       search: {
+        height: 60,
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: '#f2f2f2',
@@ -51,9 +52,9 @@ const styles = theme => ({
         color: 'inherit',
       },
       inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
+        padding: theme.spacing(2.5, 1, 1, 7),
         transition: theme.transitions.create('width'),
-        width: '100%',
+        width: '250px',
         [theme.breakpoints.up('sm')]: {
           width: 600,
           // '&:focus': {
@@ -63,7 +64,10 @@ const styles = theme => ({
       },
       progress: {
         margin: '100px auto',
-        color: 'red'
+        color: 'red',
+        [theme.breakpoints.down('sm')]:{
+          margin:"80px auto"
+        }
       },
       textWrapper : {
         maxWidth: 1200,
@@ -221,7 +225,7 @@ class Category extends Component{
                 {
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
-                    <Paper style={{padding: 20}}>
+                    <Paper style={{padding: 0}}>
                     <Typography variant="h5" style={{paddingLeft: 20}}>{this.state.foundedTerm}</Typography>
                     <Grid container >
                     {

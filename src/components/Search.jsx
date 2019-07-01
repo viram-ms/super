@@ -97,7 +97,8 @@ class Search extends Component{
         subCategory: [],
         term: '',
         foundedTerm: '',
-        show: false
+        show: false,
+        showMessage : ''
     }
     handleChange =(event) =>{
         this.setState({
@@ -105,7 +106,8 @@ class Search extends Component{
         });
       }
     
-    handleSubmit = async() => {
+    handleSubmit = async(event) => {
+      if(event.key === 'Enter'){
       console.log(JSON.stringify({"item": this.state.term}));
       const res = await fetch(`https://kenorita.herokuapp.com/search-product`,{
         method: 'POST',
@@ -119,12 +121,21 @@ class Search extends Component{
       console.log(res);
       const data= await res.json();
       console.log(data);
-      this.setState({
-        subCategory: data,
-        foundedTerm: this.state.term
-      });
+      if(data.length > 0){
+        this.setState({
+          subCategory: data,
+          foundedTerm: this.state.term
+        });
+      }
+      else {
+        this.setState({
+          subCategory: '',
+          showMessage : 'Your search did not match any products'
+        })
+      }
       console.log(this.state.subCategory.length);
     }
+  }
     handleClose = () =>{
         this.setState({
             subCategory: ''
@@ -136,7 +147,7 @@ class Search extends Component{
         return(
             <div>   
                 <Grid container>
-                    <Grid item xs={10} sm={10} md={9} style={{margin: '10px auto 20px auto'}}>
+                    <Grid item xs={10} sm={10} md={9} style={{margin: '10px auto'}}>
                       <div className={classes.search} >
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -179,6 +190,9 @@ class Search extends Component{
                      </Grid>
                     </Paper>
                   </div>
+              }
+              {
+                this.state.showMessage.length > 0 && <div  style={{maxWidth: 1200, margin: 'auto',padding: 20}}><Paper style={{padding: 20}}><Typography>{this.state.showMessage}</Typography></Paper></div>
               }
             </div> 
            

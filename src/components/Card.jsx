@@ -121,12 +121,14 @@ export default function MediaCard(props) {
   const classes = useStyles();
   return (
       <div id="section3">
-          
+          <div className={classes.title}>
+          {/* <Chip color="primary" label="CATEGORIES" className={classes.chip}></Chip> */}
+          </div>
           <Carousel
         // centerMode={true}
           className={classes.carousel}
           swipeable={true}
-          draggable={true}
+          draggable={false}
           showDots={false}
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
@@ -138,7 +140,7 @@ export default function MediaCard(props) {
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          // removeArrowOnDeviceType={["tablet", "mobile"]}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-left-20-px"
