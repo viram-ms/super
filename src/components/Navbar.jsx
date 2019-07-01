@@ -9,6 +9,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { Link, animateScroll as scroll } from "react-scroll";
 import { Typography } from '@material-ui/core';
 import MobileNav from './MobileNav';
+import Search from './Search';
 
 const styles = theme => ({
   root: {
@@ -23,20 +24,25 @@ const styles = theme => ({
   },
   search: {
     position: 'relative',
-    // borderRadius: theme.shape.borderRadius,
-    // backgroundColor: fade(theme.palette.common.black, 0.15),
-    // '&:hover': {
-    //   backgroundColor: fade(theme.palette.common.black, 0.25),
-    // },
-    // marginLeft: 0,
-    // width: '92%',
-    // [theme.breakpoints.up('sm')]: {
-    //   marginLeft: theme.spacing(1),
-    //   width: 'auto',
-    // },
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: '#F5F5F6',
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+      border: '1px solid rgba(0,0,0,0.3)',
+    },
+    '&:selected': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+     
+    },
+    marginLeft: 0,
+    width: '92%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
   },
   searchIcon: {
-    // width: theme.spacing(7),
+    width: theme.spacing(7),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -48,16 +54,17 @@ const styles = theme => ({
     color: 'primary',
   },
   inputInput: {
-    // padding: theme.spacing(2, 2, 2, 7),
-    // transition: theme.transitions.create('width'),
-    // width: '100%',
-    // [theme.breakpoints.up('sm')]: {
-    //   width: 120,
-      
-    //   '&:focus': {
-    //     width: 200,
-    //   },
-    // },
+    float: 'right',
+    height: 20,
+    padding: "12px 10px 10px 60px",
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: 240,
+      '&:focus': {
+        width: 300,
+      },
+    },
   },
   companyLogo:{
     width:80, 
@@ -99,7 +106,7 @@ const {classes} = this.props;
     <div>
       <AppBar position="fixed" color="white">
         <Toolbar>
-            <div style={{display:'flex',flexGrow: 1,alignItems:'center'}}>
+            <div style={{display:'flex',alignItems:'center', flexGrow: 1}}>
          <img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} />
             </div>
          <div className={classes.wrapper}>
@@ -164,21 +171,12 @@ const {classes} = this.props;
                 CONTACT US
               </Link>
            </Typography>
+           </div>
+          
+           {/* <Search /> */}
         
-         {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search Products..."
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'Search' }}
-            />
-          </div> */}
-        </div>
+         
+        
         <div className={classes.sidebarwrapper}>
             <MobileNav 
             // handleClickOpen={this.handleClickOpen}

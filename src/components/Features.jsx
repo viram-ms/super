@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 import brand from '../assests/brand2.svg';
 import customer from '../assests/customer.svg';
-import premium from '../assests/premium.svg';
+import premium from '../assests/premium2.svg';
 
 
 
@@ -27,9 +27,6 @@ const useStyles = makeStyles(theme => ({
      margin: '10 auto',
      padding: 10,
       height: 200,
-      [theme.breakpoints.down('sm')]:{
-       height: 310
-    },
       backgroundColor: '#00a651',
       color: 'white'
   },
@@ -38,9 +35,6 @@ const useStyles = makeStyles(theme => ({
     margin: '10 auto',
     padding: 10,
     height: 200,
-    [theme.breakpoints.down('sm')]:{
-        height: 310
-     },
     backgroundColor: '#303192',
     color: 'white'
 },
@@ -49,9 +43,6 @@ childThree:{
      margin: '10 auto',
      padding: 10,
       height: 200,
-      [theme.breakpoints.down('sm')]:{
-        height: 310
-     },
       backgroundColor: '#f58221',
       color: 'white'
 },

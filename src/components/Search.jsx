@@ -24,6 +24,7 @@ const styles = theme => ({
         backgroundColor: '#f58221',
       },
       search: {
+        height: 60,
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: '#f2f2f2',
@@ -51,9 +52,9 @@ const styles = theme => ({
         color: 'inherit',
       },
       inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
+        padding: theme.spacing(2.5, 1, 1, 7),
         transition: theme.transitions.create('width'),
-        width: '100%',
+        width: '250px',
         [theme.breakpoints.up('sm')]: {
           width: 600,
           // '&:focus': {
@@ -88,23 +89,15 @@ const styles = theme => ({
       }
   });
 
-  // function searchFor(term){
-  //   return function(x){
-  //       console.log(x.subCategories.map((item) => {return item.name.includes(term)}));
-  //       return x.subCategories.map((item) =>{ return item.name.includes(term)}) || !term;
-  //       // return x.name.includes(term) || x.subCategories.map((item) => item.brands.map((product) => product.includes(term))) || !term; 
-  //   }
-  // }
 
-class Category extends Component{
+class Search extends Component{
     state={
         title: '',
         category : [],
         subCategory: [],
         term: '',
         foundedTerm: '',
-        show: false,
-        showMessage : ''
+        show: false
     }
     handleChange =(event) =>{
         this.setState({
@@ -112,11 +105,9 @@ class Category extends Component{
         });
       }
     
-    handleSubmit = async(event) => {
-      if(event.key === 'Enter'){
+    handleSubmit = async() => {
       console.log(JSON.stringify({"item": this.state.term}));
-      try {
-        const res = await fetch(`https://kenorita.herokuapp.com/search-product`,{
+      const res = await fetch(`https://kenorita.herokuapp.com/search-product`,{
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -128,77 +119,30 @@ class Category extends Component{
       console.log(res);
       const data= await res.json();
       console.log(data);
-      if(data.length > 0){
-        this.setState({
-          subCategory: data,
-          foundedTerm: this.state.term
-        });
-      }
-      else {
-        this.setState({
-          showMessage : 'Nothing Found'
-        })
-      }
-      
-      } catch(e) {
-        console.log(e);
-      }
-      
+      this.setState({
+        subCategory: data,
+        foundedTerm: this.state.term
+      });
       console.log(this.state.subCategory.length);
     }
-    }
-
-    async componentDidMount(){
-        console.log('hi');
-        console.log(this.props);
-        const res = await fetch(`https://kenorita.herokuapp.com/product-list/${this.props.match.params.id}`,{
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest',
-            }
-        });
-
-        console.log(res);
-        const data = await res.json();
-        console.log(data);
-        if(data){
-            this.setState({
-                title: data[0].name,
-                category: data[0].categories,
-                show: true
-                // subCategory: data[0].categories[0].subCategories
-            })
-        }
-        
-
+    handleClose = () =>{
+        this.setState({
+            subCategory: ''
+        })
     }
     render(){
         const {title, category, subCategory, show, foundedTerm} = this.state
         const {classes} = this.props;
         return(
-            <div>
-            <Navbar />
-            {!show && <CircularProgress className={classes.progress} />}  
-
-           
-
-            {show &&
-               <div style={{ marginTop: 100}} id="section3">
-                <div style={{marginTop: '-100px'}} >
-                    <img src={market} alt="img" style={{height: 400, width: '100%', position: 'relative', opacity: 0.5}}/>
-                    <div className={classes.textWrapper}>
-                        <p style={{textAlign: 'center', textTransform: 'uppercase', fontSize: '28px', color:'white'}}>{title}</p> 
-                    </div> 
-                </div>
+            <div>   
                 <Grid container>
-                    <Grid item xs={10} sm={10} md={6} style={{margin: 'auto', display: 'flex'}}>
+                    <Grid item xs={10} sm={10} md={9} style={{margin: '10px auto 20px auto'}}>
                       <div className={classes.search} >
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
                         <InputBase
-                        placeholder="Search any brands or product..."
+                        placeholder="Search for any brands or products."
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
@@ -209,19 +153,17 @@ class Category extends Component{
                         onKeyPress={this.handleSubmit}
                         />
                       </div>
-                      {/* <Button onClick={this.handleSubmit} variant="contained" color="primary"> Submit </Button> */}
-
-
                   </Grid>
                   </Grid>
-                </div>}
-
-
                 {
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
                     <Paper style={{padding: 20}}>
-                    <Typography variant="h5" style={{paddingLeft: 20}}>{this.state.foundedTerm}</Typography>
+                        <div style={{display: 'flex'}}> 
+                        <Typography variant="h5" style={{paddingLeft: 20, flexGrow: 1}}>{this.state.foundedTerm}</Typography>
+                    <Button onClick={this.handleClose}>Close</Button>
+                            </div>
+                    
                     <Grid container >
                     {
                       subCategory.map((item) => 
@@ -235,47 +177,12 @@ class Category extends Component{
                     }
                      </Grid>
                     </Paper>
-                   
                   </div>
               }
-              {
-                this.state.showMessage.length > 0 && <Typography>{this.state.showMessage}</Typography>
-              }
-
-
-
-            {show && 
-                <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
-                  {category.map((item) => <div style={{marginTop: 20}}>  
-                    <Paper style={{padding: 20}}>
-                      <Grid container>
-                        <Grid item xs={12} sm={12} md={3} style={{textAlign: 'center'}}>
-                            <img src={require(`../assests/${item.image}`)} alt="img" style={{height: 200, width: 250, borderRadius: 5}} />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={9}>
-                          <h2 style={{textTransform: 'uppercase',textAlign: 'center'}}>{item.name}</h2> 
-                          <hr className={classes.divider} />
-                          <Grid container style={{marginTop: 5, marginBottom: 40}}>
-                            {item.subCategories.map((subcategory) => 
-                            <Grid item xs={12} sm={12} md={6}>
-                              <h4 style={{textAlign: 'center'}}>{subcategory.name}</h4>
-                              <div style={{textAlign: 'center'}}>
-                                {subcategory.brands.map((brand) =>  <Chip color="primary" label={`${brand}`} className={classes.chip} /> )}
-                              </div>
-                            </Grid>
-                            )} 
-                          </Grid>
-                        </Grid>
-                    </Grid>
-              </Paper>
-            </div>
-            )}
-          </div>}
-            <Footer />
             </div> 
            
         );
     }
 }
 
-export default withStyles(styles)(Category);
+export default withStyles(styles)(Search);

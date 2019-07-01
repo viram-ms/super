@@ -5,6 +5,7 @@ import MediaCard from '../components/Card';
 import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 import Features from '../components/Features';
+import Search from '../components/Search';
 
 function Landing(){
     // eslint-disable-next-line no-unused-expressions
@@ -13,7 +14,7 @@ function Landing(){
         <Navbar/>
         <Carousel 
             id="section1"/>
-        
+        <Search />
         <MediaCard 
             id="section3"/>
             <Features  

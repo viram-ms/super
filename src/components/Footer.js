@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
             padding: 0,
             bottom: 0,
             [theme.breakpoints.down("sm")]: {
-              height: 300
+              height: 250
             }
           },
     wrapper:{

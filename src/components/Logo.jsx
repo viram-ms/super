@@ -7,7 +7,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
-
+import Davidoff from '../assests/davidoff.webp'
+import CocaCola from '../assests/coca-cola.webp';
+import Maybe from '../assests/maybe.webp';
+import Pepsico from '../assests/pepsico.webp';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 // import classes from '*.module.sass';
 
 const styles = theme => ({
@@ -15,7 +19,7 @@ const styles = theme => ({
     display:'flex',
     justifyContent:'center',
     paddingTop:60,
-    paddingBottom:60,
+    paddingBottom:30,
 
   },
   logoWrapper:{
@@ -23,7 +27,7 @@ const styles = theme => ({
     justifyContent:'center'
   },
   logoImg:{
-    width:125,
+    // width:250,
     height:100,
     [theme.breakpoints.down("sm")]: {
       width: 100,
@@ -31,7 +35,8 @@ const styles = theme => ({
     }
   },
   carousel:{
-    marginBottom: 45
+    marginBottom: 45,
+    // maxWidth: 500
   },
   chip: {
     fontSize: 18,
@@ -54,25 +59,30 @@ const responsive = {
     items: 2
   }
 };
+
+
   
  class Logo extends React.Component {
   render() {
     const {classes} = this.props;
     return (
       
-        <div id="section4">
+        <div id="section4" style={{maxWidth: 1200, margin: 'auto'}}>
         <div className={classes.title}>
         <Chip color="primary" label="BRANDS LISTED WITH US" className={classes.chip}></Chip>
         </div>
         <Carousel
         // centerMode={true}
+          customLeftArrow= {<KeyboardArrowRight />}
+          customRightArrow= {<KeyboardArrowRight />}
+
           className={classes.carousel}
           swipeable={true}
           draggable={false}
           showDots={false}
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
-          slidesToSlide={1}
+          slidesToSlide={4}
           infinite={true}
           autoPlay={this.props.deviceType !== "mobile" ? true : false}
           autoPlaySpeed={1800}
@@ -80,7 +90,7 @@ const responsive = {
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
+          removeArrowOnDeviceType={[ "mobile"]}
           deviceType={this.props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-left-20-px"
@@ -95,13 +105,16 @@ const responsive = {
               <img src={HUL} className={classes.logoImg} alt="logo1"/>
           </div>
           <div className={classes.logoWrapper}>
-          <img src={Nestle} className={classes.logoImg} alt="logo1"/>
+          <img src={Davidoff} className={classes.logoImg} alt="logo1"/>
           </div>
           <div className={classes.logoWrapper}>
-              <img src={Amul} className={classes.logoImg} alt="logo1"/>
+              <img src={CocaCola} className={classes.logoImg} alt="logo1"/>
           </div>
           <div className={classes.logoWrapper}>
-          <img src={HUL} className={classes.logoImg} alt="logo1" />
+          <img src={Maybe} className={classes.logoImg} alt="logo1" />
+          </div>
+          <div className={classes.logoWrapper}>
+          <img src={Pepsico} className={classes.logoImg} alt="logo1" />
           </div>
         </Carousel>
         </div>

@@ -26,7 +26,7 @@ const data = [
     text: 'We cater to the personal care needs of our customers as well.Our range of products include dental products,hair products,sanitary products,shaving aids and skin care products.'
   },
   {
-    id:'2',
+    id:'dairy',
     title: 'Dairy Products ',
     image: 'dairy.jpg',
     text: 'We have a wide range of dairy products like ice creams, cheese,butter, favoured milk, chocolates.These products are fresh and of premium quality.'
@@ -38,31 +38,31 @@ const data = [
     text: ' We provide the best quality food grains at the most affordable prices.We have all brands of pulses and food grains.We also keep salt, sugar, papad, sauces, spices, oil,ghee.'
   },
   {
-    id:'4',
+    id:'cosmetic',
     title: 'Cosmetic Products',
     image: 'cosmetics.jpg',
     text: ' Our wide range of cosmetic products include perfumes, deodorants, kajal, mascara, blushes, nailpaints. All the cosmetic products are branded and of the supreme quality. '
   },
   {
-    id:'5',
+    id:'special',
     title: 'Special Products',
     image: 'dry-fruits.jpg',
-    text: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica'
+    text: 'We serve our customers with best quality dry fruits. We highly recommend our customers to explore and use various organic products.'
   },
   {
-    id:'6',
+    id:'house-utilities',
     title: 'House Utilities',
     image: 'soaps-detergents-2.png',
     text: 'Our home essentials include toiletries like air freshener,toilet cleaner,mops, sponges,wipers etc. We have all kinds of detergents,bath soaps, washing soaps,handwashes.'
   },
   {
-    id:'7',
+    id:'electronic-products',
     title: 'Electronic Products',
     image: 'electronics.png',
-    text: ' Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica'
+    text: 'We have wide range of electronic products like mixers,juicers,coffee machine,trimmers.'
   },
   {
-    id:'8',
+    id:'snacks-beverages',
     title: 'Snacks & Beverages',
     image: 'beverages.png',
     text: ' Our product range includes snacks and biscuits with soft drinks and energy drinks. Instant food like noodles, soups, pasta, oats and homemade khakhra are available at our store.'
@@ -89,10 +89,13 @@ const useStyles = makeStyles({
     // backgroundColor : 'red',
     maxWidth: 300,
     height: 365,
-    margin:'auto auto 5px auto',
-    // "& hover":{
-    //   boxShadow:" 0 0 50px rgba(0, 0, 0, 0.3)",
-    // }
+    margin:'10px auto 10px auto',
+    "&:hover":{
+      backgroundColor: 'inherit !important',
+      boxShadow:'0 7px 7px rgba(0,0,0,0.1), 0 5px 5px rgba(0,0,0,0.22)'
+    //  boxShadow: '0 0 11px rgba(33,33,33,.2)'
+    }
+  
   },
   media: {
     marginTop: 10,
@@ -104,7 +107,7 @@ const useStyles = makeStyles({
   title:{
     display:'flex',
     justifyContent:'center',
-    paddingTop:60
+    paddingTop:30
   },
   chip: {
     fontSize: 18,
@@ -118,9 +121,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
   return (
       <div id="section3">
-          <div className={classes.title}>
-          <Chip color="primary" label="CATEGORIES" className={classes.chip}></Chip>
-          </div>
+          
           <Carousel
         // centerMode={true}
           className={classes.carousel}
@@ -131,30 +132,31 @@ export default function MediaCard(props) {
           ssr={true} // means to render carousel on server-side.
           slidesToSlide={1}
           infinite={true}
-          autoPlay={props.deviceType !== "mobile" ? true : false}
+          autoPlay={props.deviceType !== "mobile" ? false : false}
           autoPlaySpeed={1800}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
           deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-left-20-px"
+          focusOnSelect={true}
         >
           
 
             {data.map((item) => 
             <div style={{display: 'flex', justifyContent: 'center'}}>
-                  <Link to={`/category/${item.id}`} style={{textDecoration: 'none'}}>
+                  <Link to={`/category/${item.id}`} style={{textDecoration: 'none' }}>
                   <Card className={classes.card}>
-                    <CardActionArea>
+                    
                       <CardMedia
                         className={classes.media}
                         image={require(`../assests/${item.image}`)}
                         title="Personal Care Products"
                       />
-                      <CardContent>
+                      <CardContent >
                         <Typography gutterBottom variant="h5" component="h2">
                           {item.title} 
                         </Typography>
@@ -162,7 +164,7 @@ export default function MediaCard(props) {
                           {item.text}
                         </Typography>
                       </CardContent>
-                    </CardActionArea>
+                    
                   </Card>
                 </Link>
                 </div>
