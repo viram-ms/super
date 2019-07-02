@@ -7,11 +7,12 @@ import Footer from '../components/Footer';
 import Features from '../components/Features';
 import Search from '../components/Search';
 
-function Landing(){
+function Landing(props){
     // eslint-disable-next-line no-unused-expressions
+    console.log(props);
     return(
         <div>
-        <Navbar/>
+        <Navbar location={props.location.pathname}/>
         <Carousel 
             id="section1"/>
         <Search />

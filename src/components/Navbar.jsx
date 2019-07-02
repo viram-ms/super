@@ -101,16 +101,17 @@ class Navbar extends Component {
   }
 render(){
 
-const {classes} = this.props; 
+const {classes} = this.props;
+console.log(this.props.location); 
   return (
     <div>
       <AppBar position="fixed" color="white">
         <Toolbar>
             <div style={{display:'flex',alignItems:'center', flexGrow: 1}}>
-         <img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} />
+            <Link to="/section3"><img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} /></Link>
             </div>
          <div className={classes.wrapper}>
-           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+           {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
                 to="section1"
@@ -121,8 +122,8 @@ const {classes} = this.props;
               >
                 HOME
               </Link>
-           </Typography>
-           <Typography variant="subtitle2" color="textSecondary" className={classes.header}> 
+           </Typography>}
+           {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}> 
            <Link
                 activeClass="active"
                 to="section2"
@@ -133,8 +134,8 @@ const {classes} = this.props;
               >
                 ABOUT US
               </Link>
-           </Typography>
-           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+            </Typography> }
+            {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
                 to="section3"
@@ -146,8 +147,8 @@ const {classes} = this.props;
               CATEGORIES
               
               </Link>
-           </Typography>
-           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+        </Typography> }
+        {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
                 to="section4"
@@ -158,7 +159,7 @@ const {classes} = this.props;
               >
                 BRANDS
               </Link>
-           </Typography>
+  </Typography> }
            <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
@@ -179,7 +180,7 @@ const {classes} = this.props;
         
         <div className={classes.sidebarwrapper}>
             <MobileNav 
-            // handleClickOpen={this.handleClickOpen}
+            location={this.props.location}
              />
           </div>
         </Toolbar>

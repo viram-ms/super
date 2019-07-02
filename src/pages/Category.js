@@ -49,7 +49,7 @@ const styles = theme => ({
         justifyContent: 'center',
       },
       inputRoot: {
-        color: 'inherit',
+        color: 'rgba(0,0,0,1)',
       },
       inputInput: {
         padding: theme.spacing(2.5, 1, 1, 7),
@@ -66,7 +66,7 @@ const styles = theme => ({
         margin: '100px auto',
         color: 'red',
         [theme.breakpoints.down('sm')]:{
-          margin:"80px auto"
+          margin:"90px auto"
         }
       },
       textWrapper : {
@@ -176,12 +176,16 @@ class Category extends Component{
                 // subCategory: data[0].categories[0].subCategories
             })
         }
-        
-
     }
+    handleClose = () =>{
+      this.setState({
+          subCategory: ''
+      })
+  }
     render(){
         const {title, category, subCategory, show, foundedTerm} = this.state
         const {classes} = this.props;
+        console.log(this.props);
         return(
             <div>
             <Navbar />
@@ -190,7 +194,7 @@ class Category extends Component{
            
 
             {show &&
-               <div style={{ marginTop: 100}} id="section3">
+               <div style={{ marginTop: 100}} id="section4">
                 <div style={{marginTop: '-100px'}} >
                     <img src={market} alt="img" style={{height: 400, width: '100%', position: 'relative', opacity: 0.5}}/>
                     <div className={classes.textWrapper}>
@@ -198,13 +202,13 @@ class Category extends Component{
                     </div> 
                 </div>
                 <Grid container>
-                    <Grid item xs={10} sm={10} md={6} style={{margin: 'auto', display: 'flex'}}>
+                    <Grid item xs={10} sm={10} md={9} style={{margin: 'auto'}}>
                       <div className={classes.search} >
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
                         <InputBase
-                        placeholder="Search any brands or product..."
+                        placeholder="Search any brands or product "
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
@@ -226,8 +230,11 @@ class Category extends Component{
                 {
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
-                    <Paper style={{padding: 0}}>
-                    <Typography variant="h5" style={{paddingLeft: 20}}>{this.state.foundedTerm}</Typography>
+                    <Paper style={{padding: 20}}>
+                    <div style={{display: 'flex'}}> 
+                        <Typography variant="h5" style={{paddingLeft: 20, flexGrow: 1}}>{this.state.foundedTerm}</Typography>
+                    <Button onClick={this.handleClose}>Close</Button>
+                            </div>
                     <Grid container >
                     {
                       subCategory.map((item) => 
@@ -255,10 +262,10 @@ class Category extends Component{
                   {category.map((item) => <div style={{marginTop: 20}}>  
                     <Paper style={{padding: 20}}>
                       <Grid container>
-                        <Grid item xs={12} sm={12} md={3} style={{textAlign: 'center'}}>
+                        {/* <Grid item xs={12} sm={12} md={3} style={{textAlign: 'center'}}>
                             <img src={require(`../assests/${item.image}`)} alt="img" style={{height: 200, width: 250, borderRadius: 5}} />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={9}>
+                        </Grid> */}
+                        <Grid item xs={12} sm={12} md={12}>
                           <h2 style={{textTransform: 'uppercase',textAlign: 'center'}}>{item.name}</h2> 
                           <hr className={classes.divider} />
                           <Grid container style={{marginTop: 5, marginBottom: 40}}>
@@ -277,7 +284,7 @@ class Category extends Component{
             </div>
             )}
           </div>}
-            <Footer />
+            <Footer id="section5"/>
             </div> 
            
         );

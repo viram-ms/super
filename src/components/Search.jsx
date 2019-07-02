@@ -12,7 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import CircularProgress from '@material-ui/core/LinearProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import { async } from 'q';
 const styles = theme => ({
@@ -27,9 +27,9 @@ const styles = theme => ({
         height: 60,
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#f4f4f4',
         '&:hover': {
-          backgroundColor: '#f4f4f4',
+          backgroundColor: '#f0f0f0',
         },
         // marginLeft: 0,
         marginTop: 20,
@@ -49,7 +49,8 @@ const styles = theme => ({
         justifyContent: 'center',
       },
       inputRoot: {
-        color: 'inherit',
+        color: 'black',
+        fontSize: 18
       },
       inputInput: {
         padding: theme.spacing(2.5, 1, 1, 7),
@@ -86,6 +87,10 @@ const styles = theme => ({
         border: 'none',
         borderRadius: 5,
         width: '90%'
+      },
+      progressCircular:{
+        display: 'block',
+        margin: '10px auto'
       }
   });
 
@@ -98,7 +103,8 @@ class Search extends Component{
         term: '',
         foundedTerm: '',
         show: false,
-        showMessage : ''
+        showMessage : '',
+        searching: false
     }
     handleChange =(event) =>{
         this.setState({
@@ -107,7 +113,13 @@ class Search extends Component{
       }
     
     handleSubmit = async(event) => {
+     
       if(event.key === 'Enter'){
+        this.setState({
+          searching: true,
+          subCategory: '',
+          showMessage: false
+        })
       console.log(JSON.stringify({"item": this.state.term}));
       const res = await fetch(`https://kenorita.herokuapp.com/search-product`,{
         method: 'POST',
@@ -119,19 +131,27 @@ class Search extends Component{
       });
 
       console.log(res);
+    //   setInterval(() => { 
+    //     this.setState({
+    //         searching: true
+    //     })
+    // }, 2000);
+     
       const data= await res.json();
       console.log(data);
       if(data.length > 0){
         this.setState({
           subCategory: data,
           foundedTerm: this.state.term,
-          showMessage: ''
+          showMessage: '',
+          searching: false
         });
       }
       else {
         this.setState({
           subCategory: '',
-          showMessage : 'Your search did not match any products'
+          showMessage : 'Your search did not match any products',
+          searching: false
         })
       }
       console.log(this.state.subCategory.length);
@@ -167,7 +187,10 @@ class Search extends Component{
                       </div>
                   </Grid>
                   </Grid>
-                {
+                  {
+                    this.state.searching && <CircularProgress className={classes.progressCircular} />
+                  }
+                  {
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
                     <Paper style={{padding: 20}}>

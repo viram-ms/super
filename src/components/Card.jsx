@@ -23,19 +23,19 @@ const data = [
     id:'personal-care',
     title: 'Personal Care',
     image: 'personal4.png',
-    text: 'We cater to the personal care needs of our customers as well.Our range of products include dental products,hair products,sanitary products,shaving aids and skin care products.'
+    text: 'We cater to the personal care needs of our customers as well. Our range of products include dental products, hair products, sanitary products, shaving aids and skin care products.'
   },
   {
     id:'dairy',
     title: 'Dairy Products ',
     image: 'dairy.jpg',
-    text: 'We have a wide range of dairy products like ice creams, cheese,butter, favoured milk, chocolates.These products are fresh and of premium quality.'
+    text: 'We have a wide range of dairy products like ice creams, cheese, butter, favoured milk, chocolates. These products are fresh and of premium quality.'
   },
   {
     id:'grocery',
     title: 'Grocery',
     image: 'grains.jpg',
-    text: ' We provide the best quality food grains at the most affordable prices.We have all brands of pulses and food grains.We also keep salt, sugar, papad, sauces, spices, oil,ghee.'
+    text: ' We provide the best quality food grains at the most affordable prices. We have all brands of pulses and food grains. We also keep salt, sugar, papad, sauces, spices, oil, ghee.'
   },
   {
     id:'cosmetic',
@@ -53,13 +53,13 @@ const data = [
     id:'house-utilities',
     title: 'House Utilities',
     image: 'soaps-detergents-2.png',
-    text: 'Our home essentials include toiletries like air freshener,toilet cleaner,mops, sponges,wipers etc. We have all kinds of detergents,bath soaps, washing soaps,handwashes.'
+    text: 'Our home essentials include toiletries like air freshener, toilet cleaner, mops, sponges, wipers etc. We have all kinds of detergents, bath soaps, washing soaps, handwashes.'
   },
   {
     id:'electronic-products',
     title: 'Electronic Products',
     image: 'electronics.png',
-    text: 'We have wide range of electronic products like mixers,juicers,coffee machine,trimmers.'
+    text: 'We have wide range of electronic products like mixers, juicers, coffee machine, trimmers.'
   },
   {
     id:'snacks-beverages',
@@ -72,7 +72,7 @@ const data = [
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 3
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -120,7 +120,7 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
   return (
-      <div id="section3">
+      <div id="section3" style={{maxWidth: 1300, margin: 'auto'}}>
           <div className={classes.title}>
           {/* <Chip color="primary" label="CATEGORIES" className={classes.chip}></Chip> */}
           </div>
@@ -159,10 +159,10 @@ export default function MediaCard(props) {
                         title="Personal Care Products"
                       />
                       <CardContent >
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h5" component="h2" style={{textAlign: 'center'}}>
                           {item.title} 
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
+                        <Typography variant="body2" color="textSecondary" component="p" style={{textAlign: 'justify'}}>
                           {item.text}
                         </Typography>
                       </CardContent>

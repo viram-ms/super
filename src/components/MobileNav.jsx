@@ -136,8 +136,8 @@ class MobileNav extends React.Component {
             </IconButton>
           </div>
           <List>
-            <ListItem>
-            <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+          {this.props.location === "/" &&  <ListItem>
+           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
                 to="section1"
@@ -151,8 +151,8 @@ class MobileNav extends React.Component {
                 HOME
               </Link>
            </Typography>
-            </ListItem>
-            <ListItem>
+            </ListItem>}
+            {this.props.location === "/" && <ListItem>
             <Typography variant="subtitle2" color="textSecondary" className={classes.header}> 
            <Link
                 activeClass="active"
@@ -166,8 +166,8 @@ class MobileNav extends React.Component {
                 ABOUT US
               </Link>
            </Typography>
-            </ListItem>
-            <ListItem>
+        </ListItem> }
+        {this.props.location === "/" &&  <ListItem>
             <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
@@ -183,8 +183,8 @@ class MobileNav extends React.Component {
               
               </Link>
            </Typography>
-            </ListItem>
-            <ListItem>
+        </ListItem> }
+        {this.props.location === "/" &&  <ListItem>
             <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
                 activeClass="active"
@@ -199,7 +199,7 @@ class MobileNav extends React.Component {
                 BRANDS
               </Link>
            </Typography>
-                </ListItem>
+        </ListItem> }
                 <ListItem>
                 <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <Link
