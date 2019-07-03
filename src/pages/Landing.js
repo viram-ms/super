@@ -16,10 +16,11 @@ function Landing(props){
         <Carousel 
             id="section1"/>
         <Search />
+        <Features  
+            id="section2"/>
         <MediaCard 
             id="section3"/>
-            <Features  
-            id="section2"/>
+           
         <Logo
             id="section4"/>
         <Footer 

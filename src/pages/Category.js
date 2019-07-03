@@ -14,14 +14,33 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import CircularProgress from '@material-ui/core/LinearProgress';
 import Button from '@material-ui/core/Button';
+import Carousel from "react-multi-carousel";
+import Card from '@material-ui/core/Card';
+
+
 import { async } from 'q';
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 const styles = theme => ({
     chip: {
         fontSize: 14,
         padding: 10,
         margin: 4,
         textAlign: 'center',
-        backgroundColor: '#f58221',
+        color: '#f58221',
+        border: ' 1px solid #f58221'
       },
       search: {
         height: 60,
@@ -84,11 +103,21 @@ const styles = theme => ({
         }
       },
       divider: {
+        // position: 'absolute',
+        // float: 'left',
         height: 5,
         backgroundColor: '#f58221',
         border: 'none',
         borderRadius: 5,
-        width: '90%'
+        width: '20%',
+        // margin: 10
+      },
+      carousel:{
+        maxWidth: 1400,
+        margin: 'auto'
+      },
+      card: {
+        height: 200
       }
   });
 
@@ -242,7 +271,7 @@ class Category extends Component{
                         <Typography variant="h6" style={{marginBottom: 10}}>{item.name}</Typography>
                         <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px', margin: 0}} />
                         <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography>
-                        {item.brands.map((brands) => {if(brands !== this.state.foundedTerm) return <Chip color="primary" label={`${brands}`} className={classes.chip} />})}
+                        {item.brands.map((brands) => {if(brands !== this.state.foundedTerm) return <Chip color="primary" variant="outlined" label={`${brands}`} className={classes.chip} />})}
                         </Grid>
                      ) 
                     }
@@ -257,15 +286,15 @@ class Category extends Component{
 
 
 
-            {show && 
+            {/* {show && 
                 <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
                   {category.map((item) => <div style={{marginTop: 20}}>  
                     <Paper style={{padding: 20}}>
                       <Grid container>
-                        {/* <Grid item xs={12} sm={12} md={3} style={{textAlign: 'center'}}>
+                        <Grid item xs={12} sm={12} md={3} style={{textAlign: 'center'}}>
                             <img src={require(`../assests/${item.image}`)} alt="img" style={{height: 200, width: 250, borderRadius: 5}} />
-                        </Grid> */}
-                        <Grid item xs={12} sm={12} md={12}>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={9}>
                           <h2 style={{textTransform: 'uppercase',textAlign: 'center'}}>{item.name}</h2> 
                           <hr className={classes.divider} />
                           <Grid container style={{marginTop: 5, marginBottom: 40}}>
@@ -283,7 +312,59 @@ class Category extends Component{
               </Paper>
             </div>
             )}
-          </div>}
+          </div>} */}
+
+
+          { show && 
+          category.map((item) => <div className={classes.carousel}>  
+           <h2 style={{textTransform: 'uppercase',textAlign: 'center'}}>{item.name}</h2> 
+                          <hr className={classes.divider} />
+                   <div className={classes.carousel}> 
+
+                   <Carousel
+          // className={classes.carousel}
+          swipeable={true}
+          draggable={false}
+          showDots={false}
+          responsive={responsive}
+          ssr={true} // means to render carousel on server-side.
+          slidesToSlide={1}
+          infinite={true}
+          autoPlay={this.props.deviceType !== "mobile" ? true : false}
+          autoPlaySpeed={2500}
+          keyBoardControl={true}
+          customTransition="all .5"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          deviceType={this.props.deviceType}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-left-20-px"
+          focusOnSelect={true}
+        >
+                      
+                      
+                            {item.subCategories.map((subcategory) => 
+                           <Card style={{padding: 10,margin: 10}} className={classes.card}>
+                            <div>
+                              <h4 style={{textAlign: 'center'}}>{subcategory.name}</h4>
+                              <div style={{textAlign: 'center'}}>
+                                {subcategory.brands.map((brand) =>  <Chip color="primary" label={`${brand}`} className={classes.chip} variant="outlined" /> )}
+                              </div>
+                              </div>
+                              </Card>
+                            )} 
+                          
+                   </Carousel>   
+                     </div>
+                       
+              
+            </div>
+            )}
+       }
+
+
+
             <Footer id="section5"/>
             </div> 
            

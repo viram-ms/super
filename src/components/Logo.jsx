@@ -69,7 +69,7 @@ const responsive = {
       
         <div id="section4" style={{maxWidth: 1200, margin: 'auto'}}>
         <div className={classes.title}>
-        <Chip color="primary" label="BRANDS LISTED WITH US" className={classes.chip}></Chip>
+        {/* <Chip color="primary" label="BRANDS LISTED WITH US" className={classes.chip}></Chip> */}
         </div>
         <Carousel
         // centerMode={true}

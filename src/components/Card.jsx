@@ -123,6 +123,8 @@ export default function MediaCard(props) {
       <div id="section3" style={{maxWidth: 1300, margin: 'auto'}}>
           <div className={classes.title}>
           {/* <Chip color="primary" label="CATEGORIES" className={classes.chip}></Chip> */}
+          {/* <Typography variant="h4" style={{textAlign: 'center', marginTop: 20}}>Categories</Typography> */}
+
           </div>
           <Carousel
         // centerMode={true}
