@@ -68,9 +68,11 @@ const responsive = {
     return (
       
         <div id="section4" style={{maxWidth: 1200, margin: 'auto'}}>
-        <div className={classes.title}>
-        {/* <Chip color="primary" label="BRANDS LISTED WITH US" className={classes.chip}></Chip> */}
-        </div>
+        <div style={{textAlign: 'center',marginTop: 60, marginBottom: 20}}>
+              <Typography variant="h6" style={{marginBottom: 0}}>BRANDS LISTED WITH US</Typography>
+                        
+                        <hr style={{ height: 3.5,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
+              </div>
         <Carousel
         // centerMode={true}
           customLeftArrow= {<KeyboardArrowRight />}

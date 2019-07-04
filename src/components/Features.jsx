@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     wrapper:{
         maxWidth: 1200,
         // margin: '-120px auto 0px auto',
-        margin: '40px auto 40px auto',
+        margin: '40px auto 80px auto',
         [theme.breakpoints.down('sm')]:{
             margin: '20px auto',
         },
@@ -25,24 +25,24 @@ const useStyles = makeStyles(theme => ({
   childOne:{
      textAlign: 'center',
      margin: '10 auto',
-     padding: 10,
-      height: 200,
+     padding: "10px 40px",
+      height: 210,
       backgroundColor: '#fff',
       color: '#000'
   },
   childTwo:{
     textAlign: 'center',
     margin: '10 auto',
-    padding: 10,
-    height: 200,
+    padding: "10px 40px",
+    height: 210,
     backgroundColor: '#fff',
     color: '#000'
 },
 childThree:{
     textAlign: 'center',
      margin: '10 auto',
-     padding: 10,
-      height: 200,
+     padding: "10px 40px",
+      height: 210,
       backgroundColor: '#fff',
       color: '#000'
 },
@@ -62,6 +62,12 @@ title:{
       return(
           <div id="section2">
               {/* <Typography variant="h4" style={{textAlign: 'center', marginTop: 20}}>Features</Typography> */}
+              <div style={{textAlign: 'center',marginTop: 20}}>
+              <Typography variant="h6" style={{marginBottom: 0}}>ABOUT US</Typography>
+                        
+                        <hr style={{ height: 3,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
+              </div>
+              
 
               <Grid container className={classes.wrapper} spacing={24}>
 

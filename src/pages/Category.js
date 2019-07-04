@@ -12,7 +12,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import CircularProgress from '@material-ui/core/LinearProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import Button from '@material-ui/core/Button';
 import Carousel from "react-multi-carousel";
 import Card from '@material-ui/core/Card';
@@ -34,13 +36,33 @@ const responsive = {
   }
 };
 const styles = theme => ({
+  progressCircular:{
+    display: 'block',
+    margin: '10px auto'
+  },
     chip: {
         fontSize: 14,
         padding: 10,
-        margin: 4,
+        margin: "4px",
         textAlign: 'center',
         color: '#f58221',
-        border: ' 1px solid #f58221'
+        border: ' 1px solid #f58221',
+        "&:hover":{
+          color: '#fff',
+          backgroundColor: '#f58221'
+        }
+      },
+      searchChips: {
+        fontSize: 14,
+        padding: 10,
+        margin: "5px 5px 0px 0px",
+        textAlign: 'center',
+        color: '#f58221',
+        border: ' 1px solid #f58221',
+        "&:hover":{
+          color: '#fff',
+          backgroundColor: '#f58221'
+        }
       },
       search: {
         height: 60,
@@ -73,7 +95,7 @@ const styles = theme => ({
       inputInput: {
         padding: theme.spacing(2.5, 1, 1, 7),
         transition: theme.transitions.create('width'),
-        width: '250px',
+        width: '280px',
         [theme.breakpoints.up('sm')]: {
           width: 600,
           // '&:focus': {
@@ -117,7 +139,8 @@ const styles = theme => ({
         margin: 'auto'
       },
       card: {
-        height: 200
+        height: 200,
+        minWidth: 300
       }
   });
 
@@ -134,10 +157,11 @@ class Category extends Component{
         title: '',
         category : [],
         subCategory: [],
-        term: '',
+        term: 'Himalaya',
         foundedTerm: '',
         show: false,
-        showMessage : ''
+        showMessage : '',
+        searching: false
     }
     handleChange =(event) =>{
         this.setState({
@@ -147,6 +171,11 @@ class Category extends Component{
     
     handleSubmit = async(event) => {
       if(event.key === 'Enter'){
+        this.setState({
+          searching: true,
+          subCategory: '',
+          showMessage: false
+        })
       console.log(JSON.stringify({"item": this.state.term}));
       try {
         const res = await fetch(`https://kenorita.herokuapp.com/search-product`,{
@@ -165,13 +194,15 @@ class Category extends Component{
         this.setState({
           subCategory: data,
           foundedTerm: this.state.term,
-          showMessage: ''
+          showMessage: '',
+          searching: false
         });
       }
       else {
         this.setState({
           subCategory: '',
-          showMessage : 'Your search did not match any products'
+          showMessage : 'Your search did not match any products',
+           searching: false
         })
       }
       
@@ -218,7 +249,7 @@ class Category extends Component{
         return(
             <div>
             <Navbar />
-            {!show && <CircularProgress className={classes.progress} />}  
+            {!show && <LinearProgress className={classes.progress} />}  
 
            
 
@@ -254,24 +285,37 @@ class Category extends Component{
                   </Grid>
                   </Grid>
                 </div>}
+                {
+                    this.state.searching && <CircularProgress className={classes.progressCircular} />
+                  }
 
 
                 {
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
                     <Paper style={{padding: 20}}>
-                    <div style={{display: 'flex'}}> 
-                        <Typography variant="h5" style={{paddingLeft: 20, flexGrow: 1}}>{this.state.foundedTerm}</Typography>
+                    <div style={{display: 'flex',justifyContent: 'flex-end'}}> 
+
+                        <Typography variant="h5" style={{paddingLeft:10, flexGrow: 1}}>Matched Items for <span ><b>"{this.state.foundedTerm}"</b></span></Typography>
                     <Button onClick={this.handleClose}>Close</Button>
                             </div>
                     <Grid container >
                     {
                       subCategory.map((item) => 
-                        <Grid item xs={12} sm={12} md={12/this.state.subCategory.length} style={{padding: 20, margin: 'auto'}}> 
-                        <Typography variant="h6" style={{marginBottom: 10}}>{item.name}</Typography>
+                        <Grid item xs={12} sm={12} md={6} style={{padding: 10}}> 
+                        <Typography variant="h6" style={{marginBottom: 0}}>{item.name}</Typography>
+                        
+                        <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px',float: 'left'}} />
+                        <div style={{marginTop: 20}}>
+                        {item.brands.map((brands) => {if(brands.toLowerCase().includes(this.state.foundedTerm.trim()) || brands.includes(this.state.foundedTerm.trim())) return <Chip variant="outlined" label={`${brands}`} className={classes.searchChips} />})}
+
+                        </div>
+
+                        {/* <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px', margin: 0}} /> */}
+                        {/* <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography>
                         <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px', margin: 0}} />
-                        <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography>
-                        {item.brands.map((brands) => {if(brands !== this.state.foundedTerm) return <Chip color="primary" variant="outlined" label={`${brands}`} className={classes.chip} />})}
+
+                        {item.brands.map((brands) => {if(!brands.includes(this.state.foundedTerm)) return <Chip color="primary" variant="outlined" label={`${brands}`} className={classes.chip} />})} */}
                         </Grid>
                      ) 
                     }
@@ -330,13 +374,13 @@ class Category extends Component{
           ssr={true} // means to render carousel on server-side.
           slidesToSlide={1}
           infinite={true}
-          autoPlay={this.props.deviceType !== "mobile" ? true : false}
+          autoPlay={this.props.deviceType !== "mobile" ? false : false}
           autoPlaySpeed={2500}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
           containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
+          removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
           deviceType={this.props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-left-20-px"
@@ -361,7 +405,7 @@ class Category extends Component{
               
             </div>
             )}
-       }
+       
 
 
 

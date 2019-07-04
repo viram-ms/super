@@ -16,13 +16,30 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
 import { async } from 'q';
 const styles = theme => ({
-    chip: {
-        fontSize: 14,
-        padding: 10,
-        margin: 4,
-        textAlign: 'center',
-        backgroundColor: '#f58221',
-      },
+  chip: {
+    fontSize: 14,
+    padding: 10,
+    margin: "4px",
+    textAlign: 'center',
+    color: '#f58221',
+    border: ' 1px solid #f58221',
+    "&:hover":{
+      color: '#fff',
+      backgroundColor: '#f58221'
+    }
+  },
+  searchChips: {
+    fontSize: 14,
+    padding: 10,
+    margin: "5px 5px 0px 0px",
+    textAlign: 'center',
+    color: '#f58221',
+    border: ' 1px solid #f58221',
+    "&:hover":{
+      color: '#fff',
+      backgroundColor: '#f58221'
+    }
+  },
       search: {
         height: 60,
         position: 'relative',
@@ -55,7 +72,7 @@ const styles = theme => ({
       inputInput: {
         padding: theme.spacing(2.5, 1, 1, 7),
         transition: theme.transitions.create('width'),
-        width: '250px',
+        width: '280px',
         [theme.breakpoints.up('sm')]: {
           width: 600,
           // '&:focus': {
@@ -194,10 +211,10 @@ class Search extends Component{
                   subCategory.length >0 && 
                   <div style={{maxWidth: 1200, margin: 'auto',padding: 20}}>
                     <Paper style={{padding: 20}}>
-                        <div style={{display: 'flex'}}> 
-                        <Typography variant="h5" style={{paddingLeft: 20, flexGrow: 1}}>{this.state.foundedTerm}</Typography>
-                    <Button onClick={this.handleClose}>Close</Button>
-                            </div>
+                    <div style={{display: 'flex'}}> 
+<Typography variant="h5" style={{paddingLeft: 20, flexGrow: 1}}>Matched Items for <span ><b>"{this.state.foundedTerm}"</b></span></Typography>
+<Button onClick={this.handleClose}>Close</Button>
+    </div>
                     
                     <Grid container >
                     {
@@ -206,8 +223,10 @@ class Search extends Component{
                         <Typography variant="h6" style={{marginBottom: 10}}>{item.name}</Typography>
                         
                         <hr style={{ height: 2,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '150px', margin: 0}} />
-                        <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography>
-                        {item.brands.map((brands) => {/*if(brands !== this.state.foundedTerm)*/ return <Chip color="primary" label={`${brands}`} className={classes.chip} />})}
+                        {/* <Typography varaint="body1" style={{margin: '10px 0px'}}>Similar Products</Typography> */}
+                        <div style={{marginTop: 10}}>
+                        {item.brands.map((brands) => {if(brands.toLowerCase().includes(this.state.foundedTerm.trim()) || brands.includes(this.state.foundedTerm.trim())) return <Chip variant="outlined" label={`${brands}`} className={classes.searchChips} />})}
+                        </div>
                         </Grid>
                      ) 
                     }

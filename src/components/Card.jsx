@@ -120,14 +120,13 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
   return (
-      <div id="section3" style={{maxWidth: 1300, margin: 'auto'}}>
-          <div className={classes.title}>
-          {/* <Chip color="primary" label="CATEGORIES" className={classes.chip}></Chip> */}
-          {/* <Typography variant="h4" style={{textAlign: 'center', marginTop: 20}}>Categories</Typography> */}
-
-          </div>
+      <div id="section3" style={{maxWidth: 1300, margin: '0px auto 40px auto'}}>
+           <div style={{textAlign: 'center',marginTop: 40, marginBottom: 20}}>
+              <Typography variant="h6" style={{marginBottom: 0}}>CATEGORIES</Typography>
+                        
+                        <hr style={{ height: 3,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
+              </div>
           <Carousel
-        // centerMode={true}
           className={classes.carousel}
           swipeable={true}
           draggable={false}
@@ -148,8 +147,6 @@ export default function MediaCard(props) {
           itemClass="carousel-item-padding-left-20-px"
           focusOnSelect={true}
         >
-          
-
             {data.map((item) => 
             <div style={{display: 'flex', justifyContent: 'center'}}>
                   <Link to={`/category/${item.id}`} style={{textDecoration: 'none' }}>
@@ -168,7 +165,6 @@ export default function MediaCard(props) {
                           {item.text}
                         </Typography>
                       </CardContent>
-                    
                   </Card>
                 </Link>
                 </div>
