@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     margin: '10 auto',
     padding: "10px 40px",
-    height: 210,
+    height: 230,
     backgroundColor: '#fff',
     color: '#000'
 },
