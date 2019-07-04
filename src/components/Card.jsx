@@ -121,7 +121,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
   return (
       <div id="section3" style={{maxWidth: 1300, margin: '0px auto 40px auto'}}>
-           <div style={{textAlign: 'center',marginTop: 20, marginBottom: 20}}>
+           <div style={{textAlign: 'center',marginTop: 30, marginBottom: 20}}>
               <Typography variant="h6" style={{marginBottom: 0}}>CATEGORIES</Typography>
                         
                         <hr style={{ height: 3,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
