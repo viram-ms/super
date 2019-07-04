@@ -129,7 +129,7 @@ export default function MediaCard(props) {
           <Carousel
           className={classes.carousel}
           swipeable={true}
-          draggable={false}
+          draggable={true}
           showDots={false}
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
