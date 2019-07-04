@@ -6,7 +6,8 @@ import Logo from '../assests/logo2.png';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as ReactLink, animateScroll as scroll } from "react-scroll";
+import {Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import MobileNav from './MobileNav';
 import Search from './Search';
@@ -108,11 +109,11 @@ console.log(this.props.location);
       <AppBar position="fixed" color="white">
         <Toolbar>
             <div style={{display:'flex',alignItems:'center', flexGrow: 1}}>
-            <Link to="/section3"><img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} /></Link>
+            <Link to="/"><img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} /></Link>
             </div>
          <div className={classes.wrapper}>
            {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
-           <Link
+           <ReactLink
                 activeClass="active"
                 to="section1"
                 spy={true}
@@ -121,10 +122,10 @@ console.log(this.props.location);
                 duration={500}
               >
                 HOME
-              </Link>
+              </ReactLink>
            </Typography>}
            {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}> 
-           <Link
+           <ReactLink
                 activeClass="active"
                 to="section2"
                 spy={true}
@@ -133,10 +134,10 @@ console.log(this.props.location);
                 duration={500}
               >
                 ABOUT US
-              </Link>
+              </ReactLink>
             </Typography> }
             {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
-           <Link
+           <ReactLink
                 activeClass="active"
                 to="section3"
                 spy={true}
@@ -146,10 +147,10 @@ console.log(this.props.location);
               >
               CATEGORIES
               
-              </Link>
+              </ReactLink>
         </Typography> }
         {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
-           <Link
+           <ReactLink
                 activeClass="active"
                 to="section4"
                 spy={true}
@@ -158,10 +159,10 @@ console.log(this.props.location);
                 duration={500}
               >
                 BRANDS
-              </Link>
+              </ReactLink>
   </Typography> }
            <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
-           <Link
+           <ReactLink
                 activeClass="active"
                 to="section5"
                 spy={true}
@@ -170,7 +171,7 @@ console.log(this.props.location);
                 duration={500}
               >
                 CONTACT US
-              </Link>
+              </ReactLink>
            </Typography>
            </div>
           
