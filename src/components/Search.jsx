@@ -185,7 +185,7 @@ class Search extends Component{
         return(
             <div>   
                 <Grid container>
-                    <Grid item xs={10} sm={10} md={9} style={{margin: '10px auto'}}>
+                    <Grid item xs={10} sm={10} md={11} style={{margin: '10px auto'}}>
                       <div className={classes.search} >
                         <div className={classes.searchIcon}>
                             <SearchIcon />
