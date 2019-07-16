@@ -5,14 +5,14 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Dairy from '../assests/dairy.jpg';
-import Personal from '../assests/personal4.png';
-import Grains from '../assests/grains.jpg';
-import Cosmetics from '../assests/cosmetics.jpg';
-import Beverages from '../assests/beverages.png';
-import Dryfruits from '../assests/dry-fruits.jpg';
-import HouseUtilities from '../assests/soaps-detergents-2.png';
-import Electronic from '../assests/electronics.png';
+import Dairy from '../assests/card/dairy.jpg';
+import Personal from '../assests/card/personal4.png';
+import Grains from '../assests/card/grains.jpg';
+import Cosmetics from '../assests/card/cosmetics.jpg';
+import Beverages from '../assests/card/beverages.png';
+import Dryfruits from '../assests/card/dry-fruits.jpg';
+import HouseUtilities from '../assests/card/soaps-detergents-2.png';
+import Electronic from '../assests/card/electronics.png';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Carousel from "react-multi-carousel";
@@ -154,7 +154,7 @@ export default function MediaCard(props) {
                     
                       <CardMedia
                         className={classes.media}
-                        image={require(`../assests/${item.image}`)}
+                        image={require(`../assests/card/${item.image}`)}
                         title="Personal Care Products"
                       />
                       <CardContent >

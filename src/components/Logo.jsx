@@ -1,16 +1,15 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import HUL from '../assests/hul.jpg';
-import Amul from '../assests/amul.png';
-import Nestle from '../assests/itc.png';
+import HUL from '../assests/brands/hul.jpg';
+import Amul from '../assests/brands/amul.png';
+import Nestle from '../assests/brands/itc.png';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
-import Davidoff from '../assests/davidoff.webp'
-import CocaCola from '../assests/coca-cola.webp';
-import Maybe from '../assests/maybe.webp';
-import Pepsico from '../assests/pepsico.webp';
+import Davidoff from '../assests/brands/davidoff.webp'
+import CocaCola from '../assests/brands/coca-cola.webp';
+import Maybe from '../assests/brands/maybe.webp';
+import Pepsico from '../assests/brands/pepsico.webp';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 // import classes from '*.module.sass';
 

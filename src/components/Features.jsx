@@ -2,9 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
-import brand from '../assests/brand4.svg';
-import customer from '../assests/customer2.svg';
-import premium from '../assests/premium3.svg';
+import brand from '../assests/logo/brand4.svg';
+import customer from '../assests/logo/customer2.svg';
+import premium from '../assests/logo/premium3.svg';
 
 
 
