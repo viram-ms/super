@@ -6,13 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Dairy from '../assests/card/dairy.jpg';
-import Personal from '../assests/card/personal4.png';
+import Personal from '../assests/card/personal4.jpg';
 import Grains from '../assests/card/grains.jpg';
 import Cosmetics from '../assests/card/cosmetics.jpg';
-import Beverages from '../assests/card/beverages.png';
+import Beverages from '../assests/card/beverages.jpg';
 import Dryfruits from '../assests/card/dry-fruits.jpg';
-import HouseUtilities from '../assests/card/soaps-detergents-2.png';
-import Electronic from '../assests/card/electronics.png';
+import HouseUtilities from '../assests/card/soaps-detergents-2.jpg';
+import Electronic from '../assests/card/electronics.jpg';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Carousel from "react-multi-carousel";
@@ -22,7 +22,7 @@ const data = [
   {
     id:'personal-care',
     title: 'Personal Care',
-    image: 'personal4.png',
+    image: 'personal4.jpg',
     text: 'We cater to the personal care needs of our customers as well. Our range of products include dental products, hair products, sanitary products, shaving aids and skin care products.'
   },
   {
@@ -52,19 +52,19 @@ const data = [
   {
     id:'house-utilities',
     title: 'House Utilities',
-    image: 'soaps-detergents-2.png',
+    image: 'soaps-detergents-2.jpg',
     text: 'Our home essentials include toiletries like air freshener, toilet cleaner, mops, sponges, wipers etc. We have all kinds of detergents, bath soaps, washing soaps, handwashes.'
   },
   {
     id:'electronic-products',
     title: 'Electronic Products',
-    image: 'electronics.png',
+    image: 'electronics.jpg',
     text: 'We have wide range of electronic products like mixers, juicers, coffee machine, trimmers.'
   },
   {
     id:'snacks-beverages',
     title: 'Snacks & Beverages',
-    image: 'beverages.png',
+    image: 'beverages.jpg',
     text: ' Our product range includes snacks and biscuits with soft drinks and energy drinks. Instant food like noodles, soups, pasta, oats and homemade khakhra are available at our store.'
   },
 ]
