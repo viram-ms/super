@@ -6,13 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Dairy from '../assests/card/dairy.jpg';
-import Personal from '../assests/card/personal4.jpg';
+import Personal from '../assests/card/personal4.png';
 import Grains from '../assests/card/grains.jpg';
 import Cosmetics from '../assests/card/cosmetics.jpg';
-import Beverages from '../assests/card/beverages.jpg';
+import Beverages from '../assests/card/beverages.png';
 import Dryfruits from '../assests/card/dry-fruits.jpg';
-import HouseUtilities from '../assests/card/soaps-detergents-2.jpg';
-import Electronic from '../assests/card/electronics.jpg';
+import HouseUtilities from '../assests/card/soaps-detergents-2.png';
+import Electronic from '../assests/card/electronics.png';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import Carousel from "react-multi-carousel";
@@ -22,14 +22,14 @@ const data = [
   {
     id:'personal-care',
     title: 'Personal Care',
-    image: 'personal4.jpg',
+    image: 'personal4.png',
     text: 'We cater to the personal care needs of our customers as well. Our range of products include dental products, hair products, sanitary products, shaving aids and skin care products.'
   },
   {
     id:'dairy',
     title: 'Dairy Products ',
     image: 'dairy.jpg',
-    text: 'We have a wide range of dairy products like ice creams, cheese, butter, favoured milk, chocolates. These products are fresh and of premium quality.'
+    text: 'We have a wide range of dairy products like ice creams, cheese, butter, favoured milk, chocolates.These products are fresh and of premium quality.'
   },
   {
     id:'grocery',
@@ -52,19 +52,13 @@ const data = [
   {
     id:'house-utilities',
     title: 'House Utilities',
-    image: 'soaps-detergents-2.jpg',
-    text: 'Our home essentials include toiletries like air freshener, toilet cleaner, mops, sponges, wipers etc. We have all kinds of detergents, bath soaps, washing soaps, handwashes.'
-  },
-  {
-    id:'electronic-products',
-    title: 'Electronic Products',
-    image: 'electronics.jpg',
-    text: 'We have wide range of electronic products like mixers, juicers, coffee machine, trimmers.'
+    image: 'soaps-detergents-2.png',
+    text: 'Our home essentials include toiletries like air freshener,toilet cleaner, mops, sponges, wipers etc. We have all kinds of detergents, bath soaps, washing soaps and handwashes.'
   },
   {
     id:'snacks-beverages',
     title: 'Snacks & Beverages',
-    image: 'beverages.jpg',
+    image: 'beverages.png',
     text: ' Our product range includes snacks and biscuits with soft drinks and energy drinks. Instant food like noodles, soups, pasta, oats and homemade khakhra are available at our store.'
   },
 ]
@@ -72,7 +66,7 @@ const data = [
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -86,7 +80,6 @@ const responsive = {
 
 const useStyles = makeStyles({
   card: {
-    // backgroundColor : 'red',
     maxWidth: 300,
     height: 365,
     margin:'10px auto 10px auto',
@@ -95,7 +88,6 @@ const useStyles = makeStyles({
       boxShadow:'0 7px 7px rgba(0,0,0,0.1), 0 5px 5px rgba(0,0,0,0.22)'
     //  boxShadow: '0 0 11px rgba(33,33,33,.2)'
     }
-  
   },
   media: {
     marginTop: 10,
@@ -116,13 +108,14 @@ const useStyles = makeStyles({
   }
   
 });
-
+// 5d409f215c6dac00170540b1
+// 5d409f415c6dac00170540b2
 export default function MediaCard(props) {
   const classes = useStyles();
   return (
-      <div id="section3" style={{maxWidth: 1300, margin: '0px auto 40px auto'}}>
+      <div id="section3" style={{maxWidth: 1500, margin: '0px auto 40px auto'}}>
            <div style={{textAlign: 'center',marginTop: 30, marginBottom: 20}}>
-              <Typography variant="h6" style={{marginBottom: 0}}>CATEGORIES</Typography>
+              <Typography variant="h5" style={{marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600}}>CATEGORIES</Typography>
                         
                         <hr style={{ height: 3,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
               </div>
@@ -135,8 +128,8 @@ export default function MediaCard(props) {
           ssr={true} // means to render carousel on server-side.
           slidesToSlide={1}
           infinite={true}
-          autoPlay={props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={2500}
+          autoPlay={true}
+          autoPlaySpeed={5000}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
@@ -158,10 +151,10 @@ export default function MediaCard(props) {
                         title="Personal Care Products"
                       />
                       <CardContent >
-                        <Typography gutterBottom variant="h5" component="h2" style={{textAlign: 'center'}}>
+                        <Typography gutterBottom variant="h5" component="h2" style={{textAlign: 'center', fontFamily: 'Signika, sans-serif'}}>
                           {item.title} 
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p" style={{textAlign: 'justify'}}>
+                        <Typography variant="body2" color="textSecondary" component="p" style={{textAlign: 'center'}}>
                           {item.text}
                         </Typography>
                       </CardContent>

@@ -15,6 +15,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import { Link, animateScroll as scroll } from "react-scroll";
+import Search from '@material-ui/icons/Search';
 
 
 
@@ -110,14 +111,27 @@ class MobileNav extends React.Component {
         <CssBaseline />
         
           <Toolbar disableGutters={!open} style={{}} >
+          <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+           <Link
+                activeClass="active"
+                to="section6"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                <Search style={{color:'rgba(0,0,0,0.54)'}}/>
+              </Link>
+           </Typography>
             <IconButton
-              color="primary"
+              style={{color: 'rgba(0,0,0,0.54)'}}
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </IconButton>
+           
             
           </Toolbar>
         
@@ -134,6 +148,7 @@ class MobileNav extends React.Component {
             <IconButton onClick={this.handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
+            
           </div>
           <List>
           {this.props.location === "/" &&  <ListItem>

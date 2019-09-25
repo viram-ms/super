@@ -3,14 +3,12 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Logo from '../assests/logo2.png';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { Link as ReactLink, animateScroll as scroll } from "react-scroll";
 import {Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import MobileNav from './MobileNav';
-import Search from './Search';
+import Search from '@material-ui/icons/Search';
 
 const styles = theme => ({
   root: {
@@ -106,13 +104,13 @@ const {classes} = this.props;
 console.log(this.props.location); 
   return (
     <div>
-      <AppBar position="fixed" color="white">
+      <AppBar position="relative" color="white">
         <Toolbar>
             <div style={{display:'flex',alignItems:'center', flexGrow: 1}}>
             <Link to="/"><img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} /></Link>
             </div>
          <div className={classes.wrapper}>
-           {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+           {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section1"
@@ -124,7 +122,7 @@ console.log(this.props.location);
                 HOME
               </ReactLink>
            </Typography>}
-           {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}> 
+           {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}> 
            <ReactLink
                 activeClass="active"
                 to="section2"
@@ -136,7 +134,7 @@ console.log(this.props.location);
                 ABOUT US
               </ReactLink>
             </Typography> }
-            {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+            {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section3"
@@ -149,7 +147,7 @@ console.log(this.props.location);
               
               </ReactLink>
         </Typography> }
-        {this.props.location === "/" && <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+        {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section4"
@@ -161,7 +159,7 @@ console.log(this.props.location);
                 BRANDS
               </ReactLink>
   </Typography> }
-           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
+           <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section5"
@@ -171,6 +169,18 @@ console.log(this.props.location);
                 duration={500}
               >
                 CONTACT US
+              </ReactLink>
+           </Typography>
+           <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
+           <ReactLink
+                activeClass="active"
+                to="section6"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                <Search style={{color:'rgba(0,0,0,0.54)'}}/>
               </ReactLink>
            </Typography>
            </div>

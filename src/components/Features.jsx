@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
      margin: '10 auto',
      padding: "10px 40px",
       height: 210,
-      backgroundColor: '#fff',
+    //   backgroundColor: '#fff',
       color: '#000'
   },
   childTwo:{
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     margin: '10 auto',
     padding: "10px 40px",
     height: 230,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     color: '#000'
 },
 childThree:{
@@ -43,7 +43,7 @@ childThree:{
      margin: '10 auto',
      padding: "10px 40px",
       height: 210,
-      backgroundColor: '#fff',
+    //   backgroundColor: '#fff',
       color: '#000'
 },
 icons:{
@@ -53,17 +53,17 @@ icons2:{
     height: 100
 },
 title:{
-    margin: '5px 0px'
+    margin: '5px 0px',
+    fontFamily: 'Signika, sans-serif'
 }
   }));
 
   export default function Features(){
       const classes = useStyles();
       return(
-          <div id="section2">
-              {/* <Typography variant="h4" style={{textAlign: 'center', marginTop: 20}}>Features</Typography> */}
+          <div id="section2" style={{backgroundColor: "antiquewhite", paddingTop: 20, paddingBottom: 1}}>
               <div style={{textAlign: 'center',marginTop: 20}}>
-              <Typography variant="h6" style={{marginBottom: 0}}>ABOUT US</Typography>
+              <Typography variant="h5" style={{marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600}}>ABOUT US</Typography>
                         
                         <hr style={{ height: 3,backgroundColor: '#f58221',border: 'none',borderRadius: 5,width: '200px'}} />
               </div>
