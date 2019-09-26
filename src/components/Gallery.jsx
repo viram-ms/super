@@ -1,259 +1,63 @@
-import React, { useState, useCallback } from "react";
-import Typography from "@material-ui/core/Typography";
-import Carousel from "react-multi-carousel";
-import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import { makeStyles } from '@material-ui/core/styles';
-import Lightbox from './LightBox';
+import React from "react";
+import Slider from './Slider';
+import pic1 from "../assests/Photoshoot/Bulk/resized (5)/1.jpg";
+import pic5 from "../assests/Photoshoot/Bulk/resized (5)/5.jpg";
+import pic6 from "../assests/Photoshoot/Bulk/resized (5)/6.jpg";
+import pic8 from "../assests/Photoshoot/Bulk/resized (5)/8.jpg";
 
-import pic1 from "../assests/Photoshoot/Bulk/resized (2)/1.jpg";
-import pic2 from "../assests/Photoshoot/Bulk/resized (2)/2.jpg";
-import pic3 from "../assests/Photoshoot/Bulk/resized (2)/3.jpg";
-import pic4 from "../assests/Photoshoot/Bulk/resized (2)/4.jpg";
-import pic5 from "../assests/Photoshoot/Bulk/resized (2)/5.jpg";
-import pic6 from "../assests/Photoshoot/Bulk/resized (2)/6.jpg";
-import pic7 from "../assests/Photoshoot/Bulk/resized (2)/7.jpg";
-import pic8 from "../assests/Photoshoot/Bulk/resized (2)/8.jpg";
-import pic9 from "../assests/Photoshoot/Bulk/resized (2)/9.jpg";
-import pic10 from "../assests/Photoshoot/Bulk/resized (2)/10.jpg";
-
-import pic1b from "../assests/Photoshoot/body-care/resized (3)/1.jpg";
-import pic2b from "../assests/Photoshoot/body-care/resized (3)/2.jpg";
-import pic3b from "../assests/Photoshoot/body-care/resized (3)/3.jpg";
-import pic4b from "../assests/Photoshoot/body-care/resized (3)/4.jpg";
-import pic5b from "../assests/Photoshoot/body-care/resized (3)/5.jpg";
-import pic6b from "../assests/Photoshoot/body-care/resized (3)/6.jpg";
-import pic7b from "../assests/Photoshoot/body-care/resized (3)/7.jpg";
-import pic8b from "../assests/Photoshoot/body-care/resized (3)/8.jpg";
-import pic9b from "../assests/Photoshoot/body-care/resized (3)/9.jpg";
-import pic10b from "../assests/Photoshoot/body-care/resized (3)/10.jpg";
-import pic11b from "../assests/Photoshoot/body-care/resized (3)/11.jpg";
-import pic12b from "../assests/Photoshoot/body-care/resized (3)/12.jpg";
-import pic13b from "../assests/Photoshoot/body-care/resized (3)/13.jpg";
-import pic14b from "../assests/Photoshoot/body-care/resized (3)/14.jpg";
-import pic15b from "../assests/Photoshoot/body-care/resized (3)/15.jpg";
-import pic16b from "../assests/Photoshoot/body-care/resized (3)/16.jpg";
-import pic17b from "../assests/Photoshoot/body-care/resized (3)/17.jpg";
-
-import pic1c from "../assests/Photoshoot/Freeze/resized (4)/1.jpg";
 import pic2c from "../assests/Photoshoot/Freeze/resized (4)/2.jpg";
-import pic3c from "../assests/Photoshoot/Freeze/resized (4)/3.jpg";
-import pic4c from "../assests/Photoshoot/Freeze/resized (4)/4.jpg";
 import pic5c from "../assests/Photoshoot/Freeze/resized (4)/5.jpg";
-import pic6c from "../assests/Photoshoot/Freeze/resized (4)/6.jpg";
 import pic7c from "../assests/Photoshoot/Freeze/resized (4)/7.jpg";
-import pic8c from "../assests/Photoshoot/Freeze/resized (4)/8.jpg";
 import pic9c from "../assests/Photoshoot/Freeze/resized (4)/9.jpg";
-import pic10c from "../assests/Photoshoot/Freeze/resized (4)/10.jpg";
-import pic11c from "../assests/Photoshoot/Freeze/resized (4)/11.jpg";
-import pic12c from "../assests/Photoshoot/Freeze/resized (4)/12.jpg";
-import pic13c from "../assests/Photoshoot/Freeze/resized (4)/13.jpg";
+
+import pic2d from "../assests/Photoshoot/baby/resized (5)/2.jpg";
+import pic3d from "../assests/Photoshoot/baby/resized (5)/3.jpg";
+import pic4d from "../assests/Photoshoot/baby/resized (5)/4.jpg";
+import pic5d from "../assests/Photoshoot/baby/resized (5)/5.jpg";
+
+import pic1e from "../assests/Photoshoot/snacks/resized (6)/1.jpg";
+import pic3e from "../assests/Photoshoot/snacks/resized (6)/3.jpg";
+import pic4e from "../assests/Photoshoot/snacks/resized (6)/4.jpg";
+import pic5e from "../assests/Photoshoot/snacks/resized (6)/5.jpg";
+import pic10e from "../assests/Photoshoot/snacks/resized (6)/10.jpg";
+import pic15e from "../assests/Photoshoot/snacks/resized (6)/15.jpg";
+
+import pic2f from "../assests/Photoshoot/kitchen/resized (7)/2.jpg";
+import pic9f from "../assests/Photoshoot/kitchen/resized (7)/9.jpg";
+import pic10f from "../assests/Photoshoot/kitchen/resized (7)/10.jpg";
+import pic14f from "../assests/Photoshoot/kitchen/resized (7)/14.jpg";
+
+import pic5g from "../assests/Photoshoot/house/resized (8)/5.jpg";
+import pic6g from "../assests/Photoshoot/house/resized (8)/6.jpg";
+import pic11g from "../assests/Photoshoot/house/resized (8)/11.jpg";
+import pic15g from "../assests/Photoshoot/house/resized (8)/15.jpg";
 
 
+import pic3h from "../assests/Photoshoot/hair/resized (9)/3.jpg";
+import pic9h from "../assests/Photoshoot/hair/resized (9)/9.jpg";
+import pic12h from "../assests/Photoshoot/hair/resized (9)/12.jpg";
+import pic14h from "../assests/Photoshoot/hair/resized (9)/14.jpg";
+import pic18h from "../assests/Photoshoot/hair/resized (9)/18.jpg";
 
-const useStyles = makeStyles(theme => ({
-  title: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: 60,
-    paddingBottom: 30
-  },
-  logoWrapper: {
-    display: "flex",
-    justifyContent: "center"
-  },
-  logoImg: {
-    height: 220,
-    maxWidth: 350,
-    minWidth: 300,
-    marginBottom: 10,
-    marginTop: 10,
-    boxShadow: "1px 3px 8px #808080",
-    borderRadius: 7,
-    [theme.breakpoints.down("sm")]: {
-      height: 175,
-    boxShadow: "0 0 5px #808080",
-    }
-  },
-  carousel: {
-    marginBottom: 45
-    // maxWidth: 500
-  },
-}));
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
-
-const photos = [`${pic1}`,`${pic2}`,`${pic3}`,`${pic4}`,`${pic5}`,`${pic6}`,`${pic7}`,`${pic8}`,`${pic9}`,`${pic10}` ];
-const photos_2 = [`${pic1b}`,`${pic2b}`,`${pic3b}`,`${pic4b}`,`${pic5b}`,`${pic6b}`,`${pic7b}`,`${pic8b}`,`${pic9b}`,`${pic10b}`,`${pic11b}`,`${pic12b}`,`${pic13b}`,`${pic14b}`, `${pic15b}`,`${pic16b}`,`${pic17b}` ];
-const photos_3 = [`${pic1c}`,`${pic2c}`,`${pic3c}`,`${pic4c}`,`${pic5c}`,`${pic6c}`,`${pic7c}`,`${pic8c}`,`${pic9c}`,`${pic10c}`,`${pic11c}`,`${pic12c}`,`${pic13c}` ];
+const photos_1 = [`${pic1}`,`${pic5}`,`${pic6}`,`${pic8}` ];
+const photos_3 = [`${pic2c}`,`${pic5c}`,`${pic7c}`,`${pic9c}` ];
+const photos_4 = [`${pic2d}`,`${pic3d}`,`${pic4d}`,`${pic5d}` ];
+const photos_5 = [`${pic1e}`,`${pic3e}`,`${pic4e}`,`${pic5e}`,`${pic15e}`,`${pic10e}` ];
+const photos_6 = [`${pic2f}`,`${pic9f}`,`${pic10f}`,`${pic14f}` ];
+const photos_7 = [`${pic5g}`,`${pic6g}`,`${pic11g}`,`${pic15g}` ];
+const photos_8 = [`${pic3h}`,`${pic9h}`,`${pic12h}`,`${pic14h}`,`${pic18h}` ];
 
 
 function GalleryComponent(props) {
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setIndex] = useState(0);
-
-  const modalLightBox = (index) => {
-      console.log(index);
-      setIsOpen(true);
-      setIndex(index);
-  }
-  const classes = useStyles();
   return (
     <div style={{ maxWidth: 1500, margin: "auto", padding: "0px 20px" }}>
-      <div style={{ textAlign: "center", marginTop: 30, marginBottom: 20 }}>
-        <Typography variant="h5" style={{ marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600 }}>
-          TOILETRIES PRODUCTS
-        </Typography>
-        <hr
-          style={{
-            height: 3,
-            backgroundColor: "#f58221",
-            border: "none",
-            borderRadius: 5,
-            width: "200px"
-          }}
-        />
-      </div>
-        <Carousel
-          // centerMode={true}
-          customLeftArrow={<KeyboardArrowRight />}
-          customRightArrow={<KeyboardArrowRight />}
-          className={classes.carousel}
-          swipeable={true}
-          draggable={true}
-          showDots={false}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          slidesToSlide={1}
-          infinite={true}
-          autoPlay={props.props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={3000}
-          keyBoardControl={true}
-          customTransition="all 1s"
-          transitionDuration={2000}
-          containerClass="carousel-container"
-          // removeArrowOnDeviceType={["mobile"]}
-          deviceType={props.props.deviceType}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-left-20-px"
-        >
-
-          {photos.map((item,index) => (
-            <div className={classes.logoWrapper} >
-              <img src={item} className={classes.logoImg} alt="logo1" onClick={modalLightBox.bind(this,index)} />
-          </div>
-          ))}
-          </Carousel>
-          <Lightbox
-            setIndex={setIndex}
-            photoIndex={photoIndex}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            photos={photos}
-          />
-
-      <div style={{ textAlign: "center", marginTop: 30, marginBottom: 20 }}>
-        <Typography variant="h5" style={{ marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600 }}>
-          FOOD PRODUCTS
-        </Typography>
-        <hr
-          style={{
-            height: 3,
-            backgroundColor: "#f58221",
-            border: "none",
-            borderRadius: 5,
-            width: "200px"
-          }}
-        />
-      </div>
-      <Carousel
-          // centerMode={true}
-          customLeftArrow={<KeyboardArrowRight />}
-          customRightArrow={<KeyboardArrowRight />}
-          className={classes.carousel}
-          swipeable={true}
-          draggable={true}
-          showDots={false}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          slidesToSlide={1}
-          infinite={true}
-          autoPlay={props.props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={3000}
-          keyBoardControl={true}
-          customTransition="all 1s"
-          transitionDuration={2000}
-          containerClass="carousel-container"
-          // removeArrowOnDeviceType={["mobile"]}
-          deviceType={props.props.deviceType}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-left-20-px"
-        >
-          {photos_2.map((item,index) => (
-            <div className={classes.logoWrapper} >
-              <img src={item} className={classes.logoImg} alt="logo1" onClick={modalLightBox.bind(this,index)} />
-          </div>
-          ))}
-          </Carousel>
-
-
-          <div style={{ textAlign: "center", marginTop: 30, marginBottom: 20 }}>
-        <Typography variant="h5" style={{ marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600 }}>
-          DAIRY PRODUCTS
-        </Typography>
-        <hr
-          style={{
-            height: 3,
-            backgroundColor: "#f58221",
-            border: "none",
-            borderRadius: 5,
-            width: "200px"
-          }}
-        />
-      </div>
-      <Carousel
-          // centerMode={true}
-          customLeftArrow={<KeyboardArrowRight />}
-          customRightArrow={<KeyboardArrowRight />}
-          className={classes.carousel}
-          swipeable={true}
-          draggable={true}
-          showDots={false}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          slidesToSlide={1}
-          infinite={true}
-          autoPlay={props.props.deviceType !== "mobile" ? true : false}
-          autoPlaySpeed={3000}
-          keyBoardControl={true}
-          customTransition="all 1s"
-          transitionDuration={2000}
-          containerClass="carousel-container"
-          removeArrowOnDeviceType={["mobile"]}
-          deviceType={props.props.deviceType}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-left-20-px"
-        >
-         {photos_3.map((item,index) => (
-            <div className={classes.logoWrapper} >
-              <img src={item} className={classes.logoImg} alt="logo1" onClick={modalLightBox.bind(this,index)} />
-          </div>
-          ))}
-        
-          </Carousel>
+        <Slider photos={photos_1} name="SKIN CARE PRODUCTS" props={props}/>
+        <Slider photos={photos_3} name="DAIRY PRODUCTS" props={props}/>
+        <Slider photos={photos_4} name="BABY CARE PRODUCTS" props={props}/>
+        <Slider photos={photos_5} name="SNACK AND BEVERAGES" props={props}/>
+        <Slider photos={photos_6} name="KITCHEN PRODUCTS" props={props}/>
+        <Slider photos={photos_7} name="HOUSE UTILITIES PRODUCTS" props={props}/>
+        <Slider photos={photos_8} name="HAIR CARE PRODUCTS" props={props}/>
     </div>
   );
 }

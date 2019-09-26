@@ -12,7 +12,6 @@ import Maybe from "../assests/brands/maybe.webp";
 import Pepsico from "../assests/brands/pepsico.webp";
 import Dabur from "../assests/brands/dabur2.jpg";
 import badshah from "../assests/brands/badshah.png";
-import pantene from "../assests/brands/pantene.jpg";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 // import classes from '*.module.sass';
 
@@ -129,9 +128,6 @@ class Logo extends React.Component {
           </div>
           <div className={classes.logoWrapper}>
             <img src={badshah} className={classes.logoImg} alt="logo1" />
-          </div>
-          <div className={classes.logoWrapper}>
-            <img src={pantene} className={classes.logoImg} alt="logo1" />
           </div>
         </Carousel>
       </div>
