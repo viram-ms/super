@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'signika,sans-serif',
         fontSize: 48,
         [theme.breakpoints.down('sm')]:{
-           top: 180,
+           top: 150,
            fontSize: 36
         },
     },
@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
         fontWeight: 500,
         [theme.breakpoints.down('sm')]:{
             top: 300,
+            fontSize: 18
          },
     }
 }));
