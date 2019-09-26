@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: 48,
         [theme.breakpoints.down('sm')]:{
            top: 150,
-           fontSize: 36
+           fontSize: 32
         },
     },
     subheading: {
