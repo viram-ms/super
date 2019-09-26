@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageLightbox from "react-image-lightbox";
+import 'react-image-lightbox/style.css';
 
 const Lightbox = (props) => {
 
@@ -9,7 +10,6 @@ const Lightbox = (props) => {
     return null;
   }
 
-  console.log(photos);
 
   return (
     <ImageLightbox
@@ -22,7 +22,7 @@ const Lightbox = (props) => {
       }
       onMoveNextRequest={() => setIndex((photoIndex + 1) % photos.length)}
       reactModalStyle={{
-        overlay: { zIndex: 1200 }
+        overlay: { zIndex: 1200, background: 'rgba(0,0,0,0.2)' }
       }}
     />
   );

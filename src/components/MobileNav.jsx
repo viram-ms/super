@@ -8,17 +8,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import Search from '@material-ui/icons/Search';
-
-
-
+import {Link as NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -103,8 +100,8 @@ class MobileNav extends React.Component {
   };
 
   render() {
-    const { classes, theme,handleLogout,openAlert,handleCloseDialog,handleClickOpen } = this.props;
-    const { open,anchorEl} = this.state;
+    const { classes, theme } = this.props;
+    const { open} = this.state;
 
     return (
       <div className={classes.root}>
@@ -112,16 +109,9 @@ class MobileNav extends React.Component {
         
           <Toolbar disableGutters={!open} style={{}} >
           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
-           <Link
-                activeClass="active"
-                to="section6"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
+           <NavLink to="/search">
                 <Search style={{color:'rgba(0,0,0,0.54)'}}/>
-              </Link>
+              </NavLink>
            </Typography>
             <IconButton
               style={{color: 'rgba(0,0,0,0.54)'}}
@@ -131,8 +121,6 @@ class MobileNav extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-           
-            
           </Toolbar>
         
         <Drawer

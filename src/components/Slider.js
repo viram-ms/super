@@ -1,9 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Carousel from "react-multi-carousel";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import { makeStyles } from '@material-ui/core/styles';
 import Lightbox from './LightBox';
+import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -62,27 +64,34 @@ function Slider(props) {
   const [photoIndex, setIndex] = useState(0);
 
   const modalLightBox = (index) => {
-      console.log(index);
       setIsOpen(true);
       setIndex(index);
   }
   const classes = useStyles();
-  const {photos,name} = props;
+  const {photos,name,link} = props;
   return (
-    <div style={{ maxWidth: 1500, margin: "auto", padding: "0px 20px" }}>
-      <div style={{ textAlign: "center", marginTop: 0, marginBottom: 20 }}>
-        <Typography variant="h5" style={{ marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600 }}>
-         {name}
-        </Typography>
-        <hr
-          style={{
-            height: 3,
-            backgroundColor: "#f58221",
-            border: "none",
-            borderRadius: 5,
-            width: "200px"
-          }}
-        />
+    <div style={{ maxWidth: 1500, margin: "auto", padding: "15px 20px" }}>
+      <div style={{display: 'flex', marginTop: 20, marginBottom: 10,marginRight: 20  }}>
+          {name && <div style={{flexGrow: 1,marginLeft: 20}}> 
+            <Typography variant="h5" style={{ marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600 }}>
+            {name}
+            </Typography>
+            <hr
+            style={{
+                height: 3,
+                backgroundColor: "#f58221",
+                border: "none",
+                borderRadius: 5,
+                width: "200px",
+                float: 'left'
+                }}
+                />
+            </div>}
+           {name && <div>
+               <Link to={`/category/${link}`} style={{textDecoration: 'none'}}>
+                <Button variant="contained" style={{backgroundColor:"#f58221", color: 'white'}}>VIEW MORE</Button>    
+               </Link> 
+            </div>}
       </div>
         <Carousel
           // centerMode={true}

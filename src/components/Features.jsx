@@ -61,7 +61,7 @@ title:{
   export default function Features(){
       const classes = useStyles();
       return(
-          <div id="section2" style={{backgroundColor: "antiquewhite", paddingTop: 20, paddingBottom: 1}}>
+          <div id="section2" style={{backgroundColor: "aliceblue", paddingTop: 20, paddingBottom: 1, marginTop: 60}}>
               <div style={{textAlign: 'center',marginTop: 20}}>
               <Typography variant="h5" style={{marginBottom: 0, fontFamily: 'Signika, sans-serif', fontSize: 28,fontWeight: 600}}>ABOUT US</Typography>
                         

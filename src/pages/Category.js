@@ -319,8 +319,6 @@ class Category extends Component {
   };
 
   async componentDidMount() {
-    console.log("hi");
-    console.log(this.props);
     const res = await fetch(
       `https://kenorita.herokuapp.com/product-list/${
         this.props.match.params.id
@@ -334,9 +332,7 @@ class Category extends Component {
       }
     );
 
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     if (data) {
       this.setState({
         title: data[0].name,
@@ -402,7 +398,6 @@ class Category extends Component {
   render() {
     const { title, category, subCategory, show } = this.state;
     const { classes } = this.props;
-    console.log(this.props);
     return (
       <div>
         <Navbar />
@@ -416,27 +411,14 @@ class Category extends Component {
         {show && (
           <div style={{}} id="section4">
             <div style={{ }}>
-              <div style={{padding: 25}} >
-                <p
-                  style={{
-                    margin: 0,
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontSize: "2.2rem",
-                    color: "black",
-                    fontWeight: 550,
-                    fontFamily: "Poppins, sans-serif"
-                  }}
-                >
-                  {/* {title}ss */}
-                </p>
-                 {title ==="Personal Care" && <Slider photos={photos_8} name="PERSONAL CARE PRODUCTS" props={this.props}/>}
-                {title ==="Dairy Products" && <Slider photos={photos_3} name="DAIRY PRODUCTS" props={this.props}/>}
-                {title ==="Grocery" && <Slider photos={photos_6} name="GROCERY PRODUCTS" props={this.props}/>}
-                {title ==="Cosmetic" && <Slider photos={photos_9} name="COSMETIC PRODUCTS" props={this.props}/>}
-                {title ==="Special" && <Slider photos={photos_5} name="SPECIAL PRODUCTS" props={this.props}/>}
-                {title ==="House Utilities" && <Slider photos={photos_7} name="HOUSE UTILITIES PRODUCTS" props={this.props}/>}
-                {title ==="Snacks & Beverages" && <Slider photos={photos_5} name="SNACKS & BEVERAGES" props={this.props}/>}
+              <div style={{paddingTop: 60, paddingBottom: 0}} >
+                {title ==="Personal Care" && <Slider photos={photos_8} props={this.props}/>}
+                {title ==="Dairy Products" && <Slider photos={photos_3}  props={this.props}/>}
+                {title ==="Grocery" && <Slider photos={photos_6}  props={this.props}/>}
+                {title ==="Cosmetic" && <Slider photos={photos_9}  props={this.props}/>}
+                {title ==="Special" && <Slider photos={photos_5}  props={this.props}/>}
+                {title ==="House Utilities" && <Slider photos={photos_7}  props={this.props}/>}
+                {title ==="Snacks & Beverages" && <Slider photos={photos_5}  props={this.props}/>}
               </div>
             </div>
             {/* <Grid container>
@@ -539,7 +521,7 @@ class Category extends Component {
               </h2>
               <hr className={classes.divider} />
               <div className={classes.carousel}>
-                <Grid container spacing={24}>
+                <Grid container>
                   {item.subCategories.map(subcategory => (
                     <Grid item xs={12} sm={6} md={4}>
                       <Card

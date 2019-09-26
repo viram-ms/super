@@ -3,13 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core/styles';
 
-import screen4 from '../assests/4.jpg'
-import screen5 from '../assests/5.jpg'
-import screen6 from '../assests/6.jpg'
-import screen7 from '../assests/7.jpg'
+import back1 from '../assests/Photoshoot/v2.png';
 
 
-import back1 from '../assests/back1.jpg';
 
 const useStyles = makeStyles(theme => ({ 
     img:{
@@ -17,7 +13,32 @@ const useStyles = makeStyles(theme => ({
       height: '100vh',
       display: 'block',
       margin: 'auto',
-      width: '95%'
+      width: '100%',
+      objectFit: 'cover'
+    },
+    heading: {
+        position: 'absolute',
+        top: 140,
+        zIndex: 100,
+        textAlign: 'center',
+        fontFamily: 'signika,sans-serif',
+        fontSize: 48,
+        [theme.breakpoints.down('sm')]:{
+           top: 180,
+           fontSize: 38
+        },
+    },
+    subheading: {
+        position: 'absolute',
+        top: 220,
+        zIndex: 100,
+        textAlign: 'center',
+        fontFamily: 'signika,sans-serif',
+        fontSize: 22,
+        fontWeight: 500,
+        [theme.breakpoints.down('sm')]:{
+            top: 300,
+         },
     }
 }));
 
@@ -25,24 +46,12 @@ const useStyles = makeStyles(theme => ({
 export default function MainCarousel(props) {
         const classes = useStyles();
         return (
-            <div id="section1" >
-            <Carousel showThumbs={false} showIndicators={false} infiniteLoop={true} autoPlay={true} dynamicHeight={true}>
-                <div>
-                    <img src={screen4} alt="img1"/>
-                </div>
-                <div>
-                    <img src={screen5} alt="img1"/>
-                </div>
-               
-                <div>
-                    <img src={screen6} alt="img1"/>
-                </div>
-                <div>
-                    <img src={screen7} alt="img1"/>
-                </div>
-            </Carousel>
-
-            {/* <img src={back1} alt="img1" className={classes.img} /> */}
+            <div id="section1" style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{position: 'relative'}}>
+                <img src={back1} alt="img1" className={classes.img} />
+            </div>
+                <h1 className={classes.heading}>WELCOME TO KENORITA SUPERMARKET</h1>
+                <h3  className={classes.subheading}>MAKING LIVES EASIER, HEALTHIER AND HAPPIER.</h3>
             </div>
         );
     }

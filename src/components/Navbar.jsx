@@ -18,7 +18,8 @@ const styles = theme => ({
     marginRight:5,
     marginLeft:5,
     padding:10,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontFamily: 'Signika, sans-serif'
     
   },
   search: {
@@ -101,16 +102,15 @@ class Navbar extends Component {
 render(){
 
 const {classes} = this.props;
-console.log(this.props.location); 
   return (
     <div>
-      <AppBar position="relative" color="white">
+      <AppBar position="fixed" color="white" >
         <Toolbar>
             <div style={{display:'flex',alignItems:'center', flexGrow: 1}}>
             <Link to="/"><img src={Logo} className={classes.companyLogo} alt="logo"  onClick={this.scrollToTop} /></Link>
             </div>
          <div className={classes.wrapper}>
-           {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
+           {this.props.location === "/" && <Typography variant="subtitle1"  className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section1"
@@ -122,7 +122,7 @@ console.log(this.props.location);
                 HOME
               </ReactLink>
            </Typography>}
-           {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}> 
+           {this.props.location === "/" && <Typography variant="subtitle1"  className={classes.header}> 
            <ReactLink
                 activeClass="active"
                 to="section2"
@@ -134,7 +134,7 @@ console.log(this.props.location);
                 ABOUT US
               </ReactLink>
             </Typography> }
-            {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
+            {this.props.location === "/" && <Typography variant="subtitle1"  className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section3"
@@ -147,7 +147,7 @@ console.log(this.props.location);
               
               </ReactLink>
         </Typography> }
-        {this.props.location === "/" && <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
+        {this.props.location === "/" && <Typography variant="subtitle1"  className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section4"
@@ -159,7 +159,7 @@ console.log(this.props.location);
                 BRANDS
               </ReactLink>
   </Typography> }
-           <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
+           <Typography variant="subtitle1"  className={classes.header}>
            <ReactLink
                 activeClass="active"
                 to="section5"
@@ -171,17 +171,20 @@ console.log(this.props.location);
                 CONTACT US
               </ReactLink>
            </Typography>
-           <Typography variant="subtitle1" color="textSecondary" className={classes.header}>
-           <ReactLink
+           <Typography variant="subtitle1"  className={classes.header}>
+           {/* <ReactLink
                 activeClass="active"
-                to="section6"
+                to={"/search"}
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={500}
-              >
+              > */}
+              <Link to="/search">
+
                 <Search style={{color:'rgba(0,0,0,0.54)'}}/>
-              </ReactLink>
+              </Link>
+              {/* </ReactLink> */}
            </Typography>
            </div>
           

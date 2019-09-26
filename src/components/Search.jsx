@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
+import Navbar from "./Navbar";
 const styles = theme => ({
   chip: {
     fontSize: 14,
@@ -125,7 +126,6 @@ class Search extends Component {
         subCategory: "",
         showMessage: false
       });
-      console.log(JSON.stringify({ item: this.state.term }));
       const res = await fetch(`https://kenorita.herokuapp.com/search-product`, {
         method: "POST",
         headers: {
@@ -135,7 +135,6 @@ class Search extends Component {
         body: JSON.stringify({ item: this.state.term })
       });
 
-      console.log(res);
       //   setInterval(() => {
       //     this.setState({
       //         searching: true
@@ -143,7 +142,6 @@ class Search extends Component {
       // }, 2000);
 
       const data = await res.json();
-      console.log(data);
       if (data.length > 0) {
         this.setState({
           subCategory: data,
@@ -158,7 +156,6 @@ class Search extends Component {
           searching: false
         });
       }
-      console.log(this.state.subCategory.length);
     }
   };
   handleClose = () => {
@@ -167,12 +164,13 @@ class Search extends Component {
     });
   };
   render() {
-    const { title, category, subCategory, show, foundedTerm } = this.state;
+    const {  subCategory } = this.state;
     const { classes } = this.props;
     return (
-      <div id="section6">
+      <div id="section6" style={{marginBottom: 20}}>
+        <Navbar />
         <Grid container>
-          <Grid item xs={11} sm={11} md={9} style={{ margin: "10px auto" }}>
+          <Grid item xs={11} sm={11} md={9} style={{ margin: "120px auto 0px auto" }}>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />

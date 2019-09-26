@@ -50,14 +50,14 @@ const photos_8 = [`${pic3h}`,`${pic9h}`,`${pic12h}`,`${pic14h}`,`${pic18h}` ];
 
 function GalleryComponent(props) {
   return (
-    <div style={{ maxWidth: 1500, margin: "auto", padding: "0px 20px" }}>
-        <Slider photos={photos_1} name="SKIN CARE PRODUCTS" props={props}/>
-        <Slider photos={photos_3} name="DAIRY PRODUCTS" props={props}/>
-        <Slider photos={photos_4} name="BABY CARE PRODUCTS" props={props}/>
-        <Slider photos={photos_5} name="SNACK AND BEVERAGES" props={props}/>
-        <Slider photos={photos_6} name="KITCHEN PRODUCTS" props={props}/>
-        <Slider photos={photos_7} name="HOUSE UTILITIES PRODUCTS" props={props}/>
-        <Slider photos={photos_8} name="HAIR CARE PRODUCTS" props={props}/>
+    <div style={{ maxWidth: 1500, margin: "auto", padding: "0px 5px" }}>
+        <Slider photos={photos_1} name="SKIN CARE PRODUCTS" props={props} link="personal-care"/>
+        <Slider photos={photos_3} name="DAIRY PRODUCTS" props={props} link="dairy"/>
+        <Slider photos={photos_4} name="BABY CARE PRODUCTS" props={props} link="personal-care"/>
+        <Slider photos={photos_5} name="SNACK AND BEVERAGES" props={props} link="snacks-beverages"/>
+        <Slider photos={photos_6} name="GROCERY PRODUCTS" props={props} link="grocery"/>
+        <Slider photos={photos_7} name="HOUSE UTILITIES PRODUCTS" props={props} link="house-utilities"/>
+        <Slider photos={photos_8} name="HAIR CARE PRODUCTS" props={props} link="personal-care"/>
     </div>
   );
 }

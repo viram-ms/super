@@ -3,6 +3,7 @@ import './App.css';
 import landing from './pages/Landing';
 import Category from './pages/Category';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={landing} />
         <Route exact path="/category/:id" component={Category} />
+        <Route exact path="/search" component={Search} />
       </Switch>
       </div>
       

@@ -11,13 +11,12 @@ import { Frame } from '../components/Frame';
 
 function Landing(props){
     // eslint-disable-next-line no-unused-expressions
-    console.log(props);
     return(
         <div>
         <Navbar location={props.location.pathname}/>
         <Carousel 
             id="section1"/>
-        <Search id="section6" />
+        {/* <Search id="section6" /> */}
         <Features  
             id="section2" />
         <MediaCard 
