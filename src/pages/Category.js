@@ -404,7 +404,7 @@ class Category extends Component {
         {!show && (
           <LinearProgress
             className={classes.progress}
-            style={{ top: "-92px" }}
+            style={{ top: "2px" }}
           />
         )}
 {/* linear-gradient(90deg, rgba(74,232,142,1) 1%, rgba(88,98,153,1) 45%, rgba(233,161,83,1) 100%) */}

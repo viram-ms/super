@@ -82,7 +82,7 @@ function Slider(props) {
                 backgroundColor: "#f58221",
                 border: "none",
                 borderRadius: 5,
-                width: "200px",
+                width: "120px",
                 float: 'left'
                 }}
                 />
