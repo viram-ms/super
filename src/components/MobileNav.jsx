@@ -110,7 +110,7 @@ class MobileNav extends React.Component {
           <Toolbar disableGutters={!open} style={{}} >
           <Typography variant="subtitle2" color="textSecondary" className={classes.header}>
            <NavLink to="/search">
-                <Search style={{color:'rgba(0,0,0,0.54)'}}/>
+                <Search style={{color:'rgba(0,0,0)'}}/>
               </NavLink>
            </Typography>
             <IconButton

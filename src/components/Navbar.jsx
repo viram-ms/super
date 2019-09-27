@@ -182,7 +182,7 @@ const {classes} = this.props;
               > */}
               <Link to="/search">
 
-                <Search style={{color:'rgba(0,0,0,0.54)'}}/>
+                <Search style={{color:'rgba(0,0,0)'}}/>
               </Link>
               {/* </ReactLink> */}
            </Typography>

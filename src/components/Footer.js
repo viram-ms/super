@@ -49,10 +49,10 @@ export default function Footer() {
     <div className={classes.footer} id="section5">
       <Grid container className={classes.wrapper} spacing={12}>
         <Grid item xs={12} sm={8} md={8} style={{ textAlign: "left" }}>
-          <Typography variant="body1" color="primary">
+          <Typography variant="body1" color="primary" >
             Address
           </Typography>
-          <Typography variant="subtitle1" color="inherit">
+          <Typography variant="subtitle1" color="inherit" style={{fontFamily: 'Signika,sans-serif'}}>
             <a
               href="https://goo.gl/maps/tPzvFWPTUc2sNPTaA"
               className={classes.address}
@@ -76,7 +76,7 @@ export default function Footer() {
           <Typography
             variant="subtitle1"
             color="inherit"
-            style={{ marginTop: 5 }}
+            style={{ marginTop: 5, fontFamily: 'signika,sans-serif' }}
           >
             <Phone style={{ marginBottom: "-8px" }} />{" "}
             <a href="tel:23625111" className={classes.address}>
@@ -90,16 +90,12 @@ export default function Footer() {
           <Typography
             variant="subtitle1"
             color="inherit"
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 10,fontFamily: 'signika,sans-serif' }}
           >
             <Email style={{ marginBottom: "-8px" }} />{" "}
             kenoritacollections@gmail.com
           </Typography>
         </Grid>
-        {/* <Grid item xs={12} sm={4} md={4} style={{textAlign: 'left'}} >
-                    <Typography variant="body1" color="primary">Email</Typography>
-                    <Typography variant="subtitle1" color="inherit">viram1999@gmail.com</Typography>
-                  </Grid> */}
       </Grid>
     </div>
   );
