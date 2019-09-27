@@ -39,7 +39,8 @@ const styles = theme => ({
   },
   menuButton: {
     marginLeft: 12,
-    marginRight: 20,
+    // marginRight: 20,
+    padding: 0
   },
   hide: {
     display: 'none',
