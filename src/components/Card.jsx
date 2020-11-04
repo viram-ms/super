@@ -29,7 +29,7 @@ const data = [
   {
     id:'cosmetic',
     title: 'Cosmetic Products',
-    image: 'cosmetics.jpg',
+    image: 'cosmetics.webp',
     text: ' Our wide range of cosmetic products include perfumes, deodorants, kajal, mascara, blushes, nailpaints. All the cosmetic products are branded and of the supreme quality. '
   },
   {
@@ -47,7 +47,7 @@ const data = [
   {
     id:'snacks-beverages',
     title: 'Snacks & Beverages',
-    image: 'beverages.png',
+    image: 'beverages.webp',
     text: ' Our product range includes snacks and biscuits with soft drinks and energy drinks. Instant food like noodles, soups, pasta, oats and homemade khakhra are available at our store.'
   },
 ]
