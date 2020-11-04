@@ -5,7 +5,6 @@ import MediaCard from '../components/Card';
 import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 import Features from '../components/Features';
-import Search from '../components/Search';
 import GalleryComponent from '../components/Gallery';
 import { Frame } from '../components/Frame';
 

@@ -1,20 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Dairy from '../assests/card/dairy.jpg';
-import Personal from '../assests/card/personal4.png';
-import Grains from '../assests/card/grains.jpg';
-import Cosmetics from '../assests/card/cosmetics.jpg';
-import Beverages from '../assests/card/beverages.png';
-import Dryfruits from '../assests/card/dry-fruits.jpg';
-import HouseUtilities from '../assests/card/soaps-detergents-2.png';
-import Electronic from '../assests/card/electronics.png';
-import Grid from '@material-ui/core/Grid';
-import Chip from '@material-ui/core/Chip';
 import Carousel from "react-multi-carousel";
 import {Link} from 'react-router-dom';
 

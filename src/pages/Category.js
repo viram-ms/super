@@ -5,28 +5,13 @@ import Footer from "../components/Footer";
 import Chip from "@material-ui/core/Chip";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Button from "@material-ui/core/Button";
 import Close from '@material-ui/icons/Close';
-import Carousel from "react-multi-carousel";
 import Card from "@material-ui/core/Card";
 import Dialog from '@material-ui/core/Dialog';
 import Slider from '../components/Slider';
-import pic1 from "../assests/Photoshoot/Bulk/resized (5)/1.jpg";
-import pic2 from "../assests/Photoshoot/Bulk/resized (5)/2.jpg";
-import pic3 from "../assests/Photoshoot/Bulk/resized (5)/3.jpg";
-import pic4 from "../assests/Photoshoot/Bulk/resized (5)/4.jpg";
-import pic5 from "../assests/Photoshoot/Bulk/resized (5)/5.jpg";
-import pic6 from "../assests/Photoshoot/Bulk/resized (5)/6.jpg";
-import pic7 from "../assests/Photoshoot/Bulk/resized (5)/7.jpg";
-import pic8 from "../assests/Photoshoot/Bulk/resized (5)/8.jpg";
-import pic10 from "../assests/Photoshoot/Bulk/resized (5)/10.jpg";
-
-
 
 
 import pic1c from "../assests/Photoshoot/Freeze/resized (4)/1.jpg";
@@ -40,14 +25,6 @@ import pic9c from "../assests/Photoshoot/Freeze/resized (4)/9.jpg";
 import pic10c from "../assests/Photoshoot/Freeze/resized (4)/10.jpg";
 import pic11c from "../assests/Photoshoot/Freeze/resized (4)/11.jpg";
 
-import pic1d from "../assests/Photoshoot/baby/resized (5)/1.jpg";
-import pic2d from "../assests/Photoshoot/baby/resized (5)/2.jpg";
-import pic3d from "../assests/Photoshoot/baby/resized (5)/3.jpg";
-import pic4d from "../assests/Photoshoot/baby/resized (5)/4.jpg";
-import pic5d from "../assests/Photoshoot/baby/resized (5)/5.jpg";
-import pic6d from "../assests/Photoshoot/baby/resized (5)/6.jpg";
-import pic7d from "../assests/Photoshoot/baby/resized (5)/7.jpg";
-import pic8d from "../assests/Photoshoot/baby/resized (5)/8.jpg";
 
 import pic1e from "../assests/Photoshoot/snacks/resized (6)/1.jpg";
 import pic2e from "../assests/Photoshoot/snacks/resized (6)/2.jpg";
@@ -88,7 +65,6 @@ import pic17f from "../assests/Photoshoot/kitchen/resized (7)/17.jpg";
 import pic1g from "../assests/Photoshoot/house/resized (8)/1.jpg";
 import pic2g from "../assests/Photoshoot/house/resized (8)/2.jpg";
 import pic3g from "../assests/Photoshoot/house/resized (8)/3.jpg";
-// import pic4g from "../assests/Photoshoot/house/resized (8)/4.jpg";
 import pic5g from "../assests/Photoshoot/house/resized (8)/5.jpg";
 import pic6g from "../assests/Photoshoot/house/resized (8)/6.jpg";
 import pic7g from "../assests/Photoshoot/house/resized (8)/7.jpg";
@@ -125,9 +101,7 @@ import pic4j from "../assests/Photoshoot/cosmetics/4.jpg";
 
 
 
-const photos_1 = [`${pic1}`,`${pic2}`,`${pic3}`,`${pic4}`,`${pic5}`,`${pic6}`,`${pic7}`,`${pic8}`,`${pic10}` ];
 const photos_3 = [`${pic1c}`,`${pic2c}`,`${pic4c}`,`${pic5c}`,`${pic6c}`,`${pic7c}`,`${pic8c}`,`${pic9c}`,`${pic10c}`,`${pic11c}` ];
-const photos_4 = [`${pic1d}`,`${pic2d}`,`${pic3d}`,`${pic4d}`,`${pic5d}`,`${pic6d}`,`${pic7d}`,`${pic8d}` ];
 const photos_5 = [`${pic1e}`,`${pic2e}`,`${pic3e}`,`${pic4e}`,`${pic5e}`,`${pic6e}`,`${pic7e}`,`${pic8e}`,`${pic9e}`,`${pic10e}`,`${pic11e}`,`${pic12e}`,`${pic13e}`,`${pic14e}`, `${pic15e}`,`${pic16e}`,`${pic17e}` ];
 const photos_6 = [`${pic1f}`,`${pic2f}`,`${pic3f}`,`${pic4f}`,`${pic5f}`,`${pic6f}`,`${pic7f}`,`${pic8f}`,`${pic9f}`,`${pic10f}`,`${pic11f}`,`${pic12f}`,`${pic13f}`,`${pic14f}`, `${pic15f}`,`${pic16f}`,`${pic17f}` ];
 const photos_7 = [`${pic1g}`,`${pic2g}`,`${pic3g}`,`${pic5g}`,`${pic6g}`,`${pic7g}`,`${pic8g}`,`${pic9g}`,`${pic10g}`,`${pic11g}` ];
@@ -135,20 +109,6 @@ const photos_8 = [`${pic1h}`,`${pic2h}`,`${pic3h}`,`${pic4h}`,`${pic5h}`,`${pic6
 const photos_9 = [`${pic1j}`,`${pic2j}`,`${pic3j}`,`${pic4j}` ];
 
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
 const styles = theme => ({
   progressCircular: {
     display: "block",

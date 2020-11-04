@@ -1,10 +1,8 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core/styles';
-
-import back1 from '../assests/Photoshoot/v3.png';
-import back2 from '../assests/Photoshoot/v4.png';
+import back1 from '../assests/Photoshoot/v3.webp';
+import back2 from '../assests/Photoshoot/v4.webp';
 
 
 const useStyles = makeStyles(theme => ({ 
